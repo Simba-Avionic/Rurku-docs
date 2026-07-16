@@ -1,0 +1,61 @@
+%===============================================================================
+% Rurku — Concept of Operations (CONOPS)
+% Template for a student liquid-rocket project.
+%
+% Fill sections/ and metadata in config.tex.
+% Build: make
+%===============================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{pifont}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{14pt}
+\graphicspath{{../common/}{figures/}}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue!50!black, citecolor=black}
+
+\input{config}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\ProjectName\ --- \DocTitle}
+\fancyhead[R]{v\DocVersion}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\DocStatus}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\input{sections/00-frontmatter}
+\input{sections/01-purpose}
+\input{sections/02-system}
+\input{sections/03-roles}
+\input{sections/04-constraints}
+\input{sections/05-campaign}
+\input{sections/06-coldflow}
+\input{sections/07-staticfire}
+\input{sections/08-packing}
+\input{sections/09-onsite}
+\input{sections/10-modes}
+\input{sections/11-flight-nominal}
+\input{sections/12-contingencies}
+\input{sections/13-safety}
+\input{sections/14-risks}
+\input{sections/15-documentation}
+\input{sections/16-appendices}
+\input{sections/99-changelog}
+
+\end{document}
