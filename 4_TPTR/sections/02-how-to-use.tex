@@ -1,0 +1,31 @@
+\section{How to use this document}
+
+\guidance{Plan and report are one process --- not two loose files.}
+
+\subsection{Before the test (Plan)}
+
+\begin{enumerate}[leftmargin=*]
+  \item Add / update a row in the \textbf{test register} (\S\ref{sec:register}).
+  \item Open (or copy) a record under \texttt{records/}.
+  \item Fill the \textbf{Plan} block: objective, configuration, procedure,
+    success / failure criteria, SRD IDs, hazards.
+  \item Review with the test lead + RSO (if fueled / armed).
+\end{enumerate}
+
+\subsection{After the test (Report)}
+
+\begin{enumerate}[leftmargin=*]
+  \item Fill the \textbf{Report} block in the \emph{same} record: results,
+    plots, photos, anomalies, conclusions.
+  \item Mark pass / fail / abort vs.\ the Plan criteria.
+  \item Update the register status and any SRD V\&V notes.
+  \item List follow-ups (design change, retest, CONOPS tweak).
+\end{enumerate}
+
+\subsection{Where files live}
+
+\begin{itemize}
+  \item \texttt{records/TP-*.tex} --- one file per test (Plan + Report)
+  \item Copy \texttt{records/TP-XX-000.tex} to start a new test
+  \item Add \texttt{\textbackslash input\{records/TP-\ldots\}} in \texttt{tptr.tex}
+\end{itemize}

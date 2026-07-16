@@ -1,0 +1,57 @@
+%===============================================================================
+% Rurku — Test Plan + Test Report (TPTR)
+% Template for a student liquid-rocket project.
+%
+% Plan and report are one process: fill Plan before the test, Report after.
+% Build: make
+%===============================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{pifont}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{14pt}
+\graphicspath{{../common/}{figures/}{records/}}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue!50!black, citecolor=black}
+
+\input{config}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\ProjectName\ --- \DocTitle}
+\fancyhead[R]{v\DocVersion}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\DocStatus}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\input{sections/00-frontmatter}
+\input{sections/01-purpose}
+\input{sections/02-how-to-use}
+\input{sections/03-conventions}
+\input{sections/04-test-register}
+\input{sections/05-record-guide}
+\input{records/TP-CF-001}
+\input{records/TP-SF-001}
+\input{records/TP-DR-001}
+\input{records/TP-FL-001}
+\input{records/TP-XX-000}
+\input{sections/10-srd-coverage}
+\input{sections/11-appendices}
+\input{sections/99-changelog}
+
+\end{document}

@@ -96,3 +96,5 @@ Rakieta
 - wnioski (co zmienić w projekcie / kolejnym teście)
 
 **Zasada:** nie ma „testu bez papieru” — nawet szybki check powinien mieć krótki zapis, inaczej za miesiąc nikt nie będzie wiedział, co wyszło.
+
+Szablon LaTeX: [`4_TPTR/`](4_TPTR/) (`make` → `Rurku_TPTR.pdf`).

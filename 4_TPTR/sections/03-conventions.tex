@@ -1,0 +1,37 @@
+\section{Conventions}
+
+\subsection{Test ID scheme}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\toprule
+\textbf{Prefix} & \textbf{Meaning} \\
+\midrule
+\texttt{TP-CF-xxx} & Cold-flow \\
+\texttt{TP-SF-xxx} & Static fire \\
+\texttt{TP-DR-xxx} & Dry run / countdown rehearsal (no propellant / no ignition) \\
+\texttt{TP-FL-xxx} & Flight \\
+\texttt{TP-AV-xxx} & Avionics / lab bench \\
+\texttt{TP-REC-xxx} & Recovery (e.g.\ drop / charge test) \\
+\texttt{TP-GSE-xxx} & GSE-only checkout \\
+\texttt{TP-XX-xxx} & Other / template \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Status values}
+
+\begin{itemize}
+  \item \textbf{Planned} --- Plan drafted, not yet run
+  \item \textbf{Ready} --- Plan reviewed / approved
+  \item \textbf{In progress} --- test day underway
+  \item \textbf{Pass} / \textbf{Fail} / \textbf{Abort} --- Report complete
+  \item \textbf{Waived} --- linked to an SRD waiver ID
+\end{itemize}
+
+\subsection{Link to SRD / CONOPS}
+
+\begin{itemize}
+  \item Every test should list the \textbf{SRD requirement IDs} it verifies
+    (from SRD V\&V column / verification summary).
+  \item Stage gates in CONOPS (cold-flow $\rightarrow$ SF $\rightarrow$ flight)
+    should point at TPTR records that close those gates.
+\end{itemize}
