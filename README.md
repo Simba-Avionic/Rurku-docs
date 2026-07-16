@@ -2,7 +2,139 @@
 
 Repozytorium dokumentacji projektu rakietowego. Tu trzymamy decyzje, wymagania i wyniki testów — żeby zespół nie polegał na pamięci i czacie.
 
-## Jak z tego korzystać
+## Dokumenty (szablony LaTeX)
+
+| Folder | Dokument | Build |
+| --- | --- | --- |
+| [`1_SRD/`](1_SRD/) | System Requirements Document | `make` → `Rurku_SRD.pdf` |
+| [`2_CONOPS/`](2_CONOPS/) | Concept of Operations | `make` → `Rurku_CONOPS.pdf` |
+| [`4_TPTR/`](4_TPTR/) | Test Plan + Test Report | `make` → `Rurku_TPTR.pdf` |
+
+---
+
+## Uruchomienie / budowa PDF
+
+Wspólne wymaganie: `make`, `latexmk`, TeX Live (pdflatex). Logo: `common/simbalogo.png`.
+
+### Opcja A — Dev Container / Docker (Windows i Linux)
+
+Najprostsza droga do jednakowego środowiska. Używamy gotowego obrazu:
+
+`ghcr.io/simba-avionic/simba_avionics_dockers/latex_devcontainer:1.5.0`
+
+(konfiguracja: [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json)).
+
+#### Cursor / VS Code (zalecane)
+
+1. Zainstaluj [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+   (Windows: włącz WSL2 backend) albo Docker Engine (Linux).
+2. Otwórz to repo w Cursor / VS Code.
+3. Command Palette → **Dev Containers: Reopen in Container**
+   (pierwsze uruchomienie ściąga obraz ~z GHCR).
+4. W terminalu kontenera:
+
+```bash
+cd 1_SRD && make
+cd ../2_CONOPS && make
+cd ../4_TPTR && make
+```
+
+### Wydanie (tag → GitHub Release)
+
+Workflow [`.github/workflows/release-docs.yml`](.github/workflows/release-docs.yml)
+buduje wszystkie PDF-y przy pushu taga w formacie `vMAJOR.MINOR` (np. `v1.0`, `v1.1` —
+**nie** `v1.1.1`) i tworzy GitHub Release
+z assetami w formacie `Nazwa_wersja.pdf`:
+
+- `Rurku_SRD_v1.0.pdf`
+- `Rurku_CONOPS_v1.0.pdf`
+- `Rurku_TPTR_v1.0.pdf`
+
+```bash
+git tag v1.0
+git push origin v1.0
+```
+
+Build w CI używa tego samego obrazu GHCR. Przy prywatnym pakiecie
+`GITHUB_TOKEN` musi mieć `packages: read` do org.
+
+---
+
+### Opcja B — lokalnie, bez Dockera
+
+#### Linux (Debian / Ubuntu)
+
+```bash
+sudo apt-get update
+sudo apt-get install -y --no-install-recommends \
+  make latexmk \
+  texlive-binaries texlive-latex-extra \
+  texlive-fonts-recommended texlive-fonts-extra \
+  texlive-lang-polish \
+  texlive-xetex texlive-plain-generic texlive-bibtex-extra
+```
+
+Potem:
+
+```bash
+cd 1_SRD && make
+cd ../2_CONOPS && make
+cd ../4_TPTR && make
+```
+
+Opcjonalnie (jak w obrazie Dockera) czcionki MS:
+
+```bash
+echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" \
+  | sudo debconf-set-selections
+sudo apt-get install -y ttf-mscorefonts-installer fontconfig
+```
+
+#### Windows
+
+**Zalecane: WSL2 (Ubuntu)** — te same komendy co Linux powyżej, w katalogu
+repo zamontowanym w WSL (np. `/home/.../Rurku-docs` albo
+`/mnt/c/Users/.../Rurku-docs`).
+
+Natywnie (bez WSL):
+
+1. Zainstaluj [TeX Live](https://tug.org/texlive/) albo [MiKTeX](https://miktex.org/)
+   (z `latexmk`).
+2. Zainstaluj `make` (np. przez [Chocolatey](https://chocolatey.org/):
+   `choco install make`, albo użyj Git Bash / MSYS2).
+3. W PowerShell / cmd:
+
+```powershell
+cd 1_SRD
+make
+cd ..\2_CONOPS
+make
+cd ..\4_TPTR
+make
+```
+
+Jeśli `make` nie działa, w każdym folderze dokumentu:
+
+```powershell
+latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build srd.tex
+copy build\srd.pdf Rurku_SRD.pdf
+```
+
+(dla CONOPS: `conops.tex` → `Rurku_CONOPS.pdf`; dla TPTR: `tptr.tex` → `Rurku_TPTR.pdf`).
+
+---
+
+### Czyszczenie
+
+```bash
+cd 1_SRD && make clean
+cd ../2_CONOPS && make clean
+cd ../4_TPTR && make clean
+```
+
+---
+
+## Jak z tego korzystać (merytorycznie)
 
 1. **Zanim coś zmienisz w projekcie** — sprawdź, czy zmiana nie łamie wymagań (SRD) albo opisanego przebiegu misji (CONOPS).
 2. **Zanim zaczniesz projektować podsystem** — zerknij na CONOPS (jak to ma działać) i na architekturę systemu (mapa podziału odpowiedzialności).
@@ -26,6 +158,8 @@ Dokumenty poniżej to nie „biurokracja” — to sposób, żeby uniknąć typo
 
 **Kiedy aktualizować:** gdy zespół świadomie zmienia cel misji albo kryteria sukcesu — nie „po cichu” w trakcie projektowania.
 
+Szablon: [`1_SRD/`](1_SRD/).
+
 ---
 
 ## 2. Concept of Operations (CONOPS)
@@ -43,6 +177,8 @@ Dokumenty poniżej to nie „biurokracja” — to sposób, żeby uniknąć typo
 - założenia o strefach bezpieczeństwa i łączności
 
 **Kiedy aktualizować:** gdy zmienia się kolejność testów, procedury stanowiskowe, packing albo harmonogram na konkursie — zanim etap pójdzie „na żywioł”.
+
+Szablon: [`2_CONOPS/`](2_CONOPS/).
 
 ---
 

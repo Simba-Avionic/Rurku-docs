@@ -1,0 +1,13 @@
+{
+  "name": "Rurku-docs TeX",
+  "image": "ghcr.io/simba-avionic/simba_avionics_dockers/latex",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop"
+      ]
+    }
+  },
+  "postCreateCommand": "latexmk -v && make -v"
+}
