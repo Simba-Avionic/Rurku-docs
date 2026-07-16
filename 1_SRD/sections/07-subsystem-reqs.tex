@@ -1,0 +1,103 @@
+\section{Department requirements}
+
+\guidance{One section per department. Keep requirements measurable.
+Interfaces and diagrams $\rightarrow$ SAD; procedures $\rightarrow$ CONOPS /
+Test Plan.}
+
+\subsection{Engine}
+
+\guidance{Engine department owns the propulsion system: chamber, injector,
+ignition, and typically onboard tanks / feed hardware that delivers
+propellant to the engine. Coordinate remotely actuated valves with GSE.}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
+\toprule
+\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
+\midrule
+ENG-001 & Propellant combination shall be \todo{fuel / oxidizer}
+  (change requires SRD approval). & Must & I & \todo{} \\
+ENG-002 & Engine shall deliver thrust / burn time of
+  \todo{T\,N for t\,s} (or performance envelope). & Must & T & \todo{} \\
+ENG-003 & Ignition reliability shall be demonstrated in static fire
+  per CONOPS success criteria. & Must & T & \todo{} \\
+ENG-004 & Onboard feed / tanks shall support cold-flow and flight fueling
+  without leaks at operating pressure \todo{P}. & Must & T & \todo{} \\
+ENG-005 & MEOP / proof / burst factors for engine-side pressure hardware
+  shall meet \todo{team safety standard / code}. & Must & A/T & \todo{} \\
+ENG-006 & Engine-side valves required for hot/fueled ops shall be remotely
+  operable via GSE. & Must & D/T & \todo{} \\
+ENG-007 & \todo{Cutoff / abort / residual dump capability if any.} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Aerostructure}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
+\toprule
+\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
+\midrule
+AERO-001 & Airframe shall survive nominal flight loads with factor of safety
+  \todo{FoS}. & Must & A/T & \todo{} \\
+AERO-002 & Engine / tank mounts shall carry static-fire and flight loads. & Must & A/T & \todo{} \\
+AERO-003 & Rail buttons / guides shall be compatible with
+  \todo{rail type}. & Must & I & \todo{} \\
+AERO-004 & Outer mold line / fin set shall provide static margin
+  $\geq$\,\todo{Z}\,cal (with Simulations). & Must & A & \todo{} \\
+AERO-005 & \todo{Additional aerostructure req.\ (mass budget share, integration).} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Avionics}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
+\toprule
+\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
+\midrule
+AV-001 & Flight computer shall detect apogee / deploy events per recovery
+  requirements. & Must & T & \todo{} \\
+AV-002 & Telemetry shall be live to the ground station from T$-$\,\todo{} through
+  \todo{landing / loss of signal criteria}. & Must & T & \todo{} \\
+AV-003 & Arming shall require an explicit, reversible action distinct from
+  power-up (CONOPS armed mode). & Must & D & \todo{} \\
+AV-004 & Onboard power shall last $\geq$\,\todo{t}\,min in the worst-case
+  timeline (pad hold + flight + recovery search). & Must & T/A & \todo{} \\
+AV-005 & \todo{Recording / backup data / sensor suite requirements.} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Recovery}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
+\toprule
+\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
+\midrule
+REC-001 & Recovery system shall limit descent rate to $\leq$\,\todo{v}\,m/s
+  at landing. & Must & A/T & \todo{} \\
+REC-002 & Deployment shall occur at / after apogee within
+  \todo{timing / altitude} criteria. & Must & T & \todo{} \\
+REC-003 & Vehicle shall be trackable to the expected landing area
+  (\todo{radio / GPS / visual}). & Must & T/D & \todo{} \\
+REC-004 & \todo{Dual-deploy / redundancy if required.} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Simulations}
+
+\guidance{Simulations does not fly hardware, but owns analyses that
+\emph{close} mission and vehicle requirements before flight / SF.}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
+\toprule
+\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
+\midrule
+SIM-001 & A trajectory / performance model shall predict apogee for the
+  baseline vehicle within \todo{tolerance} of MIS-001 before flight. & Must & A & \todo{} \\
+SIM-002 & Stability / aero analysis shall confirm AERO-004 (static margin)
+  for the as-built mass properties. & Must & A & \todo{} \\
+SIM-003 & Structural / loads analysis shall support AERO-001 / AERO-002
+  with documented assumptions. & Must & A & \todo{} \\
+SIM-004 & Simulations shall deliver pre-flight / pre-SF prediction packages
+  used in go/no-go (CONOPS). & Should & I & \todo{} \\
+SIM-005 & \todo{CFD / thermal / other analysis requirements if needed.} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabularx}

@@ -1,0 +1,63 @@
+\section{Requirement conventions}
+
+\guidance{Every requirement should be measurable or clearly verifiable.
+Avoid ``should be robust'' without a number or pass/fail test.}
+
+\subsection{ID scheme (by department)}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\toprule
+\textbf{Prefix} & \textbf{Department / scope} \\
+\midrule
+\texttt{MIS-} & Mission / campaign success \\
+\texttt{VEH-} & Vehicle system-level (cross-department) \\
+\texttt{ENG-} & Engine \\
+\texttt{GSE-} & Ground Support Equipment \\
+\texttt{REC-} & Recovery \\
+\texttt{AERO-} & Aerostructure \\
+\texttt{AV-} & Avionics \\
+\texttt{SIM-} & Simulations \\
+\texttt{SAF-} & Safety (cross-cutting) \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Priority}
+
+\begin{itemize}
+  \item \textbf{Must} --- required for mission success / safety; non-compliance blocks flight
+  \item \textbf{Should} --- important; waiver needs lead approval
+  \item \textbf{Could} --- desirable; may slip
+\end{itemize}
+
+\subsection{Status}
+
+\begin{itemize}
+  \item \textbf{Proposed} / \textbf{Approved} / \textbf{Frozen} / \textbf{Waived}
+\end{itemize}
+
+\subsection{V\&V methods}
+
+The \textbf{V\&V} column in requirement tables is the planned
+\emph{verification and validation} method (how we prove the requirement).
+Codes may be combined (e.g.\ \texttt{T/A}).
+
+\begin{table}[ht]
+\centering
+\caption{V\&V method codes used in requirement tables.}
+\label{tab:vv-methods}
+\begin{tabularx}{\linewidth}{@{}c l X@{}}
+\toprule
+\textbf{Code} & \textbf{Method} & \textbf{Meaning / example} \\
+\midrule
+T & Test & Measurement or experiment (flight, static fire, cold-flow, drop test) \\
+A & Analysis & Calculation or simulation (trajectory, loads, margins) \\
+I & Inspection & Visual / document check (post-flight damage, packing list, waiver on file) \\
+D & Demonstration & Show the procedure works (abort drill, arming sequence, remote safing) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Requirement table columns}
+
+Each requirement table uses: \textbf{ID}, \textbf{Requirement}, \textbf{Priority},
+\textbf{V\&V} (see Table~\ref{tab:vv-methods}), \textbf{Owner}.

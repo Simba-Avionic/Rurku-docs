@@ -1,0 +1,33 @@
+\section{Verification and validation}
+
+\guidance{SRD states \emph{what} must be true. Test Plan states \emph{how}
+each test is run. Link requirement IDs into test cases.}
+
+\subsection{Verification summary}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X l@{}}
+\toprule
+\textbf{ID} & \textbf{Primary verification event} & \textbf{Pass criterion (short)} \\
+\midrule
+MIS-001 & \todo{Flight / SIM-001 prediction + flight} & \todo{apogee $\geq$\,\ldots} \\
+MIS-002 & \todo{Post-flight inspection} & \todo{no critical damage} \\
+ENG-002 & \todo{Static fire} & \todo{thrust/time in band} \\
+ENG-004 & \todo{Cold-flow} & \todo{no leaks at MEOP} \\
+AV-002 & \todo{Flight / pad dry run} & \todo{TM continuous} \\
+REC-001 & \todo{Flight / drop test} & \todo{descent rate} \\
+AERO-001 & \todo{Analysis (SIM) + SF/flight loads} & \todo{FoS met} \\
+GSE-002 & \todo{Pad abort drill} & \todo{safe without hot entry} \\
+SIM-001 & \todo{Pre-flight review package} & \todo{prediction delivered} \\
+\todo{\ldots} & \todo{\ldots} & \todo{\ldots} \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Campaign gates (from CONOPS)}
+
+\begin{itemize}
+  \item Cold-flow pass $\rightarrow$ unlocks static fire
+  \item Static fire pass $\rightarrow$ unlocks competition packing / flight
+  \item On-site dry run pass $\rightarrow$ unlocks fueling / countdown
+\end{itemize}
+
+\todo{If a gate is waived, record waiver ID, approver, and residual risk.}

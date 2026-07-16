@@ -1,0 +1,43 @@
+\section{Change control}
+
+\guidance{Update the SRD when the team \emph{consciously} changes the mission
+or success criteria --- not silently during CAD work.}
+
+\subsection{When to update}
+
+\begin{itemize}
+  \item Mission goal or success criteria change
+  \item Propellant, recovery concept, or major architecture change
+  \item Competition rule change that affects Must requirements
+  \item Approved waiver that temporarily allows non-compliance with a Must
+\end{itemize}
+
+\subsection{Process}
+
+\begin{enumerate}[leftmargin=*]
+  \item Propose change: ID(s), old text, new text, reason, impact on CONOPS / SAD / tests
+  \item Review: affected department owners + safety
+  \item Approve: project lead (and RSO if safety-related)
+  \item Update this document + revision history; bump version
+  \item Notify team (and update dependent docs)
+\end{enumerate}
+
+\subsection{Waivers}
+
+\guidance{A \emph{waiver} is a temporary, written permission to proceed
+\emph{without} fully meeting a Must requirement. It is not a silent skip.
+If you permanently change the requirement, edit the requirement text via
+the process above --- do not use a waiver for that.}
+
+\noindent Fill this table only when a Must is intentionally not met for a
+specific stage (example: ``MIS-004 waived for this static fire; cold-flow
+runs next week''). If there are no waivers, write ``None'' in the first row
+and leave the rest empty.
+
+\noindent\begin{tabularx}{\linewidth}{@{}l l X l@{}}
+\toprule
+\textbf{Waiver ID} & \textbf{REQ ID} & \textbf{Reason / residual risk} & \textbf{Approver} \\
+\midrule
+\todo{None / W-001} & \todo{e.g.\ MIS-004} & \todo{why + what risk remains} & \todo{lead / RSO} \\
+\bottomrule
+\end{tabularx}
