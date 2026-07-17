@@ -2,10 +2,10 @@
 
 \begin{tabular}{@{}ll@{}}
 \textbf{ID:} & TP-CF-001 \\
-\textbf{Status:} & \todo{Planned / Ready / Pass / Fail / Abort} \\
-\textbf{Date / site:} & \todo{} \\
-\textbf{Test lead:} & \todo{} \\
-\textbf{RSO:} & \todo{} \\
+\textbf{Status:} & Fail \\
+\textbf{Date / site:} & 4.07.2026 \\
+\textbf{Test lead:} & Jan Sacharuk \\
+\textbf{RSO:} & Jan Sacharuk \\
 \end{tabular}
 
 \subsection*{Plan}
@@ -14,11 +14,13 @@
 \todo{e.g.\ Verify fill / press / vent sequence with no leaks at MEOP;
 close ENG-004 / GSE-001.}
 
+
 \paragraph{Configuration}
 \begin{itemize}
-  \item Hardware: \todo{vehicle / stand article, GSE rev, instrumentation}
-  \item Software / FC: \todo{N/A or version}
-  \item Propellant / media: \todo{what is flowing; igniter safed?}
+  \item \textbf{Ignition:} e-matches.
+  \item \textbf{Hardware:} Engine Board V2 SN 2; Engine Board V2 SN 1
+  \item \textbf{Software:} \href{https://github.com/Simba-Avionic/srp/releases/tag/v1.1.0}{srp v1.1.0}
+  \item \textbf{Control Device:} srp-app
 \end{itemize}
 
 \paragraph{Procedure}
@@ -26,15 +28,16 @@ close ENG-004 / GSE-001.}
 
 \paragraph{Success criteria}
 \begin{itemize}
-  \item \todo{No leaks at pressure P for t seconds}
-  \item \todo{Valve sequence timing within \ldots}
-  \item \todo{Complete log / photos}
+  \item No leaks at pressure
+  \item Launch sequence completed Successful
+  \item Complete log / photos
 \end{itemize}
 
 \paragraph{Failure / abort criteria}
 \begin{itemize}
-  \item \todo{Any leak in hot zone $\rightarrow$ HOLD / vent / abort}
-  \item \todo{Lost GSE link $\rightarrow$ abort to safe}
+  \item Any leak in hot zone $\rightarrow$
+  \item Lost GSE link $\rightarrow$ abort to safe
+  \item Lost of test data
 \end{itemize}
 
 \paragraph{SRD IDs verified}
@@ -46,14 +49,13 @@ close ENG-004 / GSE-001.}
 \subsection*{Report}
 
 \paragraph{Outcome}
-\todo{Pass / Fail / Abort}
+Fail
 
 \paragraph{Results}
-\todo{Pressures, timings, compared to success criteria.}
+All test data, are not successful recover, launch sequence also fail, we perform manual launch sequence from srp-app
 
 \paragraph{Plots / data}
-\todo{Path to CSV / figures; or \texttt{\textbackslash includegraphics}.}
-
+...
 \paragraph{Photos}
 \todo{Setup, anomalies, post-test state.}
 
