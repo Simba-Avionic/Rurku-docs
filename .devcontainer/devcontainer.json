@@ -1,13 +1,28 @@
 {
   "name": "Rurku-docs TeX",
-  "image": "ghcr.io/simba-avionic/simba_avionics_dockers/latex",
+  "image": "ghcr.io/simba-avionic/simba_avionics_dockers/latex_devcontainer",
   "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [
-        "James-Yu.latex-workshop"
-      ]
+        "James-Yu.latex-workshop",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "latex-workshop.view.pdf.viewer": "tab",
+        "latex-workshop.latex.autoBuild.run": "never",
+        "cSpell.language": "en",
+        "cSpell.enabledLanguageIds": [
+          "latex",
+          "tex"
+        ]
+      }
     }
   },
-  "postCreateCommand": "latexmk -v && make -v"
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+  ]
 }
