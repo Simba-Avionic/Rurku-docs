@@ -16,6 +16,28 @@ Repozytorium dokumentacji projektu rakietowego. Tu trzymamy decyzje, wymagania i
 
 Wspólne wymaganie: `make`, `latexmk`, TeX Live (pdflatex). Logo: `common/simbalogo.png`.
 
+### Budowanie z katalogu głównego
+
+Wszystkie dokumenty można zbudować z poziomu repozytorium jednym poleceniem:
+
+```bash
+make all
+```
+
+Wyniki budowy można oczyścić:
+
+```bash
+make clean
+```
+
+Można też zbudować pojedynczy PDF z katalogu głównego, podając nazwę folderu dokumentu:
+
+```bash
+make 1_SRD
+make 2_CONOPS
+make 4_TPTR
+```
+
 ### Opcja A — Dev Container / Docker (Windows i Linux)
 
 Najprostsza droga do jednakowego środowiska. Używamy gotowego obrazu:
