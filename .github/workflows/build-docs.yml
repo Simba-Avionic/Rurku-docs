@@ -1,0 +1,36 @@
+name: Build documentation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  build:
+    if: contains(github.event.pull_request.labels.*.name, 'build')
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/simba-avionic/simba_avionics_dockers/latex
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    env:
+      VERSION: pr-${{ github.event.pull_request.number }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build all PDFs
+        run: make release VERSION=${{ env.VERSION }}
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-pdfs
+          path: release/*.pdf
+          if-no-files-found: error
