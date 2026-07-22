@@ -2,8 +2,8 @@
 
 \begin{tabular}{@{}ll@{}}
 \textbf{ID:} & TP-SF-002 \\
-\textbf{Status:} & Pass \\
-\textbf{Date / site:} & 14.07.2026 \\
+\textbf{Status:} & Pass (anomalies) \\
+\textbf{Date / site:} & 14.07.2026 (analysis 21.07.2026) \\
 \textbf{Test lead:} & Jan Sacharuk \\
 \textbf{RSO:} & Jan Sacharuk \\
 \textbf{Prerequisite:} & TP-SF-001 Fail $\rightarrow$ igniter remount; TP-CP-001 Pass; TP-CF-002 Pass \\
@@ -44,6 +44,25 @@ close ENG-002 / ENG-003.
   \item \textbf{Software:} \href{https://github.com/Simba-Avionic/srp/releases/tag/v1.2.0}{srp v1.2.0}
   \item \textbf{Control Device:} srp-app
 \end{itemize}
+
+\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.48\linewidth} X@{}}
+  \toprule
+  \textbf{Parameter} & \textbf{Value} \\
+  \midrule
+  Thrust (estimated / no load-cell log) & $\approx$4153\,N \\
+  Chamber pressure (nominal band) & $\approx$16\,bar \\
+  O/F & 2.12 \\
+  Total mass flow rate & 2.3501\,kg/s \\
+  Fuel mass flow rate & 0.7517\,kg/s (Python); 0.75324\,kg/s (RPA) \\
+  Oxidizer mass flow rate & 1.5969\,kg/s \\
+  N\textsubscript{2}O pintle orifices & 27 \\
+  Ethanol supercharge (executed) & 32.5\,bar (planned 40\,bar) \\
+  Ethanol cooling-jacket $\Delta p$ (RPA expected) & 4.23\,bar \\
+  Ethanol pressure drop (observed) & 12.37\,bar \\
+  Nitrous supercharge & 55\,bar \\
+  Nitrous temperature & 20\,$^{\circ}$C ($\approx$50.5\,bar vapour) \\
+  \bottomrule
+  \end{tabularx}
 
 \paragraph{CONOPS (DRM-0400)}
 \guidance{As executed on 14.07.2026. Nominal command times from flight software
@@ -106,7 +125,8 @@ Fill complete; disconnect N\textsubscript{2} and N\textsubscript{2}O decouplers 
 \toprule
 \textbf{Operation} & \textbf{Expected result} \\
 \midrule
-Open Main Pressurant Valve & Ethanol tank 1$\rightarrow$40\,bar; N\textsubscript{2}O tank 50.5$\rightarrow$55\,bar \\
+Open Main Pressurant Valve & Ethanol tank 1$\rightarrow$40\,bar (planned; executed $\approx$32.5\,bar);
+  N\textsubscript{2}O tank 50.5$\rightarrow$55\,bar \\
 {[}T $-$ 1150\,ms{]} Initiate e-matches & Flares ignite \\
 {[}T $-$ 450\,ms{]} Open Main Fuel Valve (fully) & Fuel flow enabled \\
 {[}T $+$ 0\,ms{]} Open Main Oxidizer Valve (fully) & Ignition in combustion chamber \\
@@ -169,6 +189,8 @@ If no flame visible, execute checklist D-2 & --- \\
 \bottomrule
 \end{tabularx}
 
+
+
 \paragraph{Success criteria}
 \begin{itemize}
   \item Successful ignition inside the combustion chamber.
@@ -200,20 +222,128 @@ extinguishers and muster briefed.
 \subsection*{Report}
 
 \paragraph{Outcome}
-Pass
+Pass (with anomalies) --- analysis dated 21.07.2026.
 
 \paragraph{Results}
-\todo{Burn time, peak/mean thrust or pressure, vs.\ criteria. Command timeline in
-checklist~C was executed as logged.}
+Ignition inside the chamber succeeded after the TP-SF-001 igniter remount.
+Command timeline in checklist~C was executed as logged; main valves closed at
+T$+$7\,s as planned. Visual burn from Dominik's GoPro~4 (\texttt{liquid static 2.mp4},
+120\,fps) looked nominally stable for $\approx$1.3\,s after ignition.
+
+\medskip
+\noindent\textbf{Timeline vs.\ pressure + video} (ignition $t_0 \approx$ timestamp 504017\,ms
+in \texttt{launch2.csv}; analysis window 503279--521043):
+\begin{itemize}
+  \item \textbf{$t \approx 0$:} Clear ignition on chamber pressure and on video.
+  \item \textbf{$0$--$\approx$750\,ms:} Stable operation; chamber $\approx$14.5--16\,bar with a
+    short spike near $t \approx 250$\,ms.
+  \item \textbf{$\approx$750\,ms:} Chamber pressure begins to fall; ethanol injector /
+    manifold pressure rises correspondingly. Not obvious on the film.
+  \item \textbf{$\approx$1300\,ms:} Clear loss of thrust / chamber pressure on video and
+    on the pressure trace.
+  \item \textbf{$\approx$2400\,ms:} Sudden engine ``excitation'' / possible hard transient
+    on film; ethanol manifold pressure collapses while chamber pressure stays nearly
+    flat.
+  \item \textbf{$\approx$2.5--7\,s:} Quasi-equilibrium with low-frequency combustion
+    roughness consistent with chugging (chamber $\leftrightarrow$ ethanol hydraulics).
+  \item \textbf{$t = 7$\,s:} Planned shutdown; main valves close.
+\end{itemize}
 
 \paragraph{Plots / data}
-\todo{Link DAQ log / plots (chamber pressures, load cell, tank pressures).}
+DAQ: \texttt{launch2.csv} (pressure channels). Load-cell / thrust stand log was
+\textbf{not} recovered (logging appeared healthy during calibration and an earlier
+attempt the same day). Video: side/top Simple GoPro~9; best plume structure from
+Dominik GoPro~4 bottom view. Pressure units on plots are bar$\times$100; time in ms
+relative to $t_0$.
 
-\paragraph{Photos}
-\todo{Post-test photos of igniter mounting and chamber condition.}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{01_overview.png}
+  \caption{TP-SF-002 --- full pressure overview (N\textsubscript{2} feed, N\textsubscript{2}O tank,
+    ethanol tank, ethanol manifold, chamber).}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{02_ignition_zoom.png}
+  \caption{Ignition and first $\approx$650\,ms (chamber + ethanol manifold).}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{03_excitation_frame.png}
+  \caption{Video frame near the $\approx$2.4\,s excitation / hard transient.}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{04_plume_stable_a.png}
+  \caption{Early / stable plume structure (Mach diamonds visible).}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{05_annotated_early.png}
+  \caption{Annotated early burn: ignition, stable phase, chamber drop at
+    $\approx$750\,ms, visible thrust loss at $\approx$1300\,ms.}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{06_plume_mach.png}
+  \caption{Plume with clear shock-diamond structure (GoPro~4).}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{07_plume_stable_b.png}
+  \caption{Additional plume frame during powered burn.}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{08_manifold_event.png}
+  \caption{Ethanol manifold rise after chamber decay and sharp manifold collapse at
+    $\approx$2.4\,s (chamber nearly unchanged).}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{09_chugging_shutdown.png}
+  \caption{Post-transient equilibrium with chugging-like roughness through planned
+    shutdown at 7\,s.}
+\end{figure}
+
+\paragraph{Photos / video}
+Archive under \texttt{4\_TPTR/images/TP-SF-002/}. Primary analysis video:
+\texttt{liquid static 2.mp4} (Dominik GoPro~4, bottom). Supporting: Simple GoPro~9
+side and top. Full video set:
+\href{https://drive.google.com/drive/folders/1d65TkSBx83SWk-aAPDYAglD0gByUyFhu}{Google Drive --- static fire 14.07.26}.
 
 \paragraph{Anomalies}
-\todo{None / list with severity.}
+\begin{itemize}
+  \item No usable thrust-stand / load-cell recording despite successful calibration
+    earlier the same day --- thrust in the results table is estimated, not measured.
+  \item Ethanol tank supercharge only $\approx$32.5\,bar vs.\ 40\,bar planned.
+  \item Large ethanol feed $\Delta p$ ($\approx$12.37\,bar vs.\ $\approx$4.23\,bar RPA jacket
+    expectation) --- suspect channel / injector pressure drop and/or check-valve /
+    feed hydraulics.
+  \item Chamber pressure decay from $\approx$750\,ms with concurrent ethanol manifold
+    rise; visible thrust loss by $\approx$1.3\,s.
+  \item Hard transient / possible injector event at $\approx$2.4\,s (manifold pressure
+    collapse; film shows sudden plume excitation).
+  \item Low-frequency chugging-like instabilities from $\approx$2.5\,s to shutdown.
+\end{itemize}
 
 \paragraph{Conclusions / follow-ups}
-\todo{Unlock packing / flight gate? Retest?}
+\begin{itemize}
+  \item Investigate nitrogen pressurant path and ethanol supercharge shortfall
+    (why 32.5\,bar instead of 40\,bar).
+  \item Inspect injector / pintle and check valves after the $\approx$2.4\,s event;
+    quantify orifice / channel $\Delta p$.
+  \item Fix thrust-stand logging before the next static fire; do not rely on
+    estimated thrust for ENG close-out.
+  \item Treat chugging and early chamber-pressure decay as open issues before
+    packing / flight gate --- consider feed-system damping and O/F / supercharge
+    setpoints for the next SF.
+\end{itemize}
