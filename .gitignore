@@ -4,3 +4,96 @@
 .devcontainer/devcontainer-lock.json
 release/
 diff_release/
+
+# ==========================================
+# Systemy operacyjne (OS Junk)
+# ==========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ==========================================
+# IDE & Edytory (VS Code & devcontainer)
+# ==========================================
+
+# VS Code
+# Ignorujemy całą ścieżkę .vscode prócz plików konfiguracyjnych, które warto współdzielić
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Devcontainers
+# Domyślnie devcontainer powinieneś trzymać w repozytorium!
+# Ignorujemy tylko lokalne nadpisania i dane tymczasowe:
+.devcontainer/*.local.*
+.devcontainer/docker-compose.override.yml
+
+# ==========================================
+# Logi, bazy danych i pliki tymczasowe
+# ==========================================
+
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+.cache/
+
+# Środowisko / Sekrety (NIGDY nie dodawaj sekretów do Git!)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ==========================================
+# Typowe pliki budowania / zależności (Opcjonalnie)
+# ==========================================
+
+# Node / JS
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Java / Kotlin
+.gradle/
+build/
+target/
