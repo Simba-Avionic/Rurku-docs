@@ -45,10 +45,21 @@ jobs:
           path: diff_release/*.pdf
           if-no-files-found: error
           retention-days: 7
+      - name: Find existing artifact comment
+        uses: peter-evans/find-comment@v3
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: github-actions[bot]
+          body-includes: '<!-- docs-diff-pdfs -->'
+
       - name: Komentarz z bezpośrednim linkiem
         uses: peter-evans/create-or-update-comment@v5
         with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
           body: |
+            <!-- docs-diff-pdfs -->
             🚀 **Pobierz artefakt bezpośrednio:**
             [Pobierz docs-diff-pdfs.zip](https://nightly.link/${{ github.repository }}/actions/runs/${{ github.run_id }}/docs-diff-pdfs.zip)
