@@ -1,0 +1,62 @@
+%===============================================================================
+% Rurku — Interface Control Document (ICD)
+% Template for a student liquid-rocket project.
+%
+% Fill sections/, interfaces/, and metadata in config.tex.
+% Build: make
+%===============================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{pifont}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{14pt}
+\graphicspath{{../common/}{figures/}{interfaces/}}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue!50!black, citecolor=black}
+
+\input{config}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\ProjectName\ --- \DocTitle}
+\fancyhead[R]{v\DocVersion}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\DocStatus}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\input{sections/00-frontmatter}
+\input{sections/01-purpose}
+\input{sections/02-context}
+\input{sections/03-scope}
+\input{sections/04-conventions}
+\input{sections/05-register}
+\input{sections/06-record-guide}
+\input{interfaces/IF-001}
+\input{interfaces/IF-002}
+\input{interfaces/IF-003}
+\input{interfaces/IF-004}
+\input{interfaces/IF-005}
+\input{interfaces/IF-006}
+\input{interfaces/IF-007}
+\input{interfaces/IF-008}
+\input{interfaces/IF-XXX-000}
+\input{sections/10-change-control}
+\input{sections/11-appendices}
+\input{sections/99-changelog}
+
+\end{document}

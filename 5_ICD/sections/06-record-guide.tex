@@ -1,0 +1,34 @@
+\section{Record structure (what each IF file contains)}
+\label{sec:icd-record-guide}
+
+Each \texttt{interfaces/IF-*.tex} file is one controlled interface. Fill both
+sides before marking Approved.
+
+\subsection{Identification}
+
+\begin{itemize}
+  \item ID, title, type(s), status, revision
+  \item From / To blocks (SAD names) and owners
+\end{itemize}
+
+\subsection{Technical definition}
+
+\begin{itemize}
+  \item Physical / connector / fitting description
+  \item Signals, messages, or media exchanged (I/O)
+  \item Data types, units, scales, limits, tolerances
+  \item Timing / rate / periodicity (if applicable)
+  \item Protocol or encoding (if data)
+  \item Diagrams / drawings / tables
+\end{itemize}
+
+\subsection{Control}
+
+\begin{itemize}
+  \item Responsibilities (who may change what)
+  \item Related SRD IDs / TPTR tests (pointers only)
+  \item Per-interface change history
+\end{itemize}
+
+\guidance{Duplicate IF-XXX-000 for new interfaces. Add a register row
+and an include line in icd.tex.}

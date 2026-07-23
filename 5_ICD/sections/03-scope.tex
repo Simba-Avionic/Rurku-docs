@@ -1,0 +1,34 @@
+\section{Scope}
+
+\subsection{In scope}
+
+\begin{itemize}
+  \item Primary interfaces listed in the SAD register (\texttt{IF-*})
+  \item Mechanical / physical, fluid, electrical, data / communication,
+    hardware--software, and (if needed) HMI interfaces
+  \item Parameters needed for integration and interface tests: connectors,
+    pinouts, media, MEOP / voltage limits, message formats, rates, tolerances
+  \item Responsibilities and approved change history per interface
+\end{itemize}
+
+\subsection{Out of scope (do not duplicate)}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\toprule
+\textbf{Content} & \textbf{Document} \\
+\midrule
+Subsystem breakdown, budgets, context diagrams & SAD \\
+Measurable Must / Should requirements & SRD \\
+Campaign timelines, pad roles, contingencies & CONOPS \\
+Test procedures, plots, pass/fail evidence & TPTR \\
+Full CAD / manufacturing drawings & CAD vault (link from IF sheet) \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Assumptions}
+
+\begin{itemize}
+  \item IF IDs in this document match SAD (same \texttt{IF-00x})
+  \item High-level need for an interface may be driven by SRD; the
+    \emph{solution} lives here
+\end{itemize}
