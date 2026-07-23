@@ -3,12 +3,25 @@ language: "pl-PL"
 
 reviews:
   profile: "chill"
+
+  # --- Ograniczenie gabarytów i spamu z komentarzy ---
+  high_level_summary: false        # Wyłącza sekcję High-level summary oraz Walkthrough
+  walkthrough: false               # Wyłącza szczegółową tabelkę zmian
+  poem: false                      # Wyłącza wierszyki/podsumowania ozdobne (jeśli były włączone)
+  
+  # Wyłącza wysyłanie komentarza podsumowującego, jeśli CodeRabbit nie ma żadnych uwag (no actionable comments)
   auto_review:
     enabled: true
     drafts: false
+    ignore_title_keywords:
+      - "WIP"
+      - "draft"
 
-  # Wykluczenia pod to repo (LaTeX). Locki Node / dist są już w domyślnych
-  # ignorach CodeRabbit — nie trzeba ich tu powtarzać.
+  # --- Wyłączenie Pre-Merge Checks ---
+  pre_merge_checks:
+    enabled: false
+
+  # --- Filtry ścieżek (Twoje istniejące reguły) ---
   path_filters:
     - "!**/build/**"
     - "!**/release/**"
@@ -22,6 +35,7 @@ reviews:
     - "!**/*.fdb_latexmk"
     - "!**/*.synctex.gz"
 
+  # --- Instrukcje dla ścieżek (Twoje istniejące reguły) ---
   path_instructions:
     - path: "**/*.tex"
       instructions: |
@@ -34,3 +48,8 @@ reviews:
       instructions: |
         Sprawdź poprawność ścieżek, pinowanie obrazów CI oraz czy cele Make
         i workflowy GitHub Actions są spójne między dokumentami.
+
+# --- Wyłączenie wadliwych / niepotrzebnych narzędzi ---
+tools:
+  checkov:
+    enabled: false
