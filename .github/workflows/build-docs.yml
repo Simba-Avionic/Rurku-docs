@@ -5,6 +5,7 @@ on:
     types: [opened, synchronize, reopened, labeled]
 
 permissions:
+  pull-requests: write
   contents: read
   packages: read
 
@@ -25,7 +26,7 @@ jobs:
           apt-get install -y --no-install-recommends git latexdiff ca-certificates
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -38,9 +39,16 @@ jobs:
         run: make diff DIFF_REF="origin/${{ github.base_ref }}"
 
       - name: Upload diff PDFs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: docs-diff-pdfs
           path: diff_release/*.pdf
           if-no-files-found: error
           retention-days: 7
+      - name: Komentarz z bezpośrednim linkiem
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🚀 **Pobierz artefakt bezpośrednio:**
+            [Pobierz docs-diff-pdfs.zip](https://nightly.link/${{ github.repository }}/actions/runs/${{ github.run_id }}/docs-diff-pdfs.zip)
