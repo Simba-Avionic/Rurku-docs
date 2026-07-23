@@ -3,6 +3,7 @@
 BUILD := build
 SRC := sad.tex
 SECTIONS := $(wildcard sections/*.tex) config.tex
+FIGURES := $(wildcard figures/*.*)
 LOGO := ../common/simbalogo.png
 PDF_NAME := Rurku_SAD.pdf
 OUT := ./$(PDF_NAME)
@@ -12,7 +13,7 @@ all: $(OUT)
 $(BUILD):
 	mkdir -p $(BUILD)
 
-$(BUILD)/sad.pdf: $(SRC) $(SECTIONS) $(LOGO) | $(BUILD)
+$(BUILD)/sad.pdf: $(SRC) $(SECTIONS) $(FIGURES) $(LOGO) | $(BUILD)
 	latexmk -pdf -interaction=nonstopmode -halt-on-error \
 		-outdir=$(BUILD) $(SRC)
 

@@ -3,6 +3,7 @@
 BUILD := build
 SRC := icd.tex
 SECTIONS := $(wildcard sections/*.tex) $(wildcard interfaces/*.tex) config.tex
+FIGURES := $(wildcard figures/*.*)
 LOGO := ../common/simbalogo.png
 PDF_NAME := Rurku_ICD.pdf
 OUT := ./$(PDF_NAME)
@@ -12,7 +13,7 @@ all: $(OUT)
 $(BUILD):
 	mkdir -p $(BUILD)
 
-$(BUILD)/icd.pdf: $(SRC) $(SECTIONS) $(LOGO) | $(BUILD)
+$(BUILD)/icd.pdf: $(SRC) $(SECTIONS) $(FIGURES) $(LOGO) | $(BUILD)
 	latexmk -pdf -interaction=nonstopmode -halt-on-error \
 		-outdir=$(BUILD) $(SRC)
 
