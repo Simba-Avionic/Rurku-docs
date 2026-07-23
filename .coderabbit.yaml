@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "pl-PL"
+
+reviews:
+  profile: "chill"
+  auto_review:
+    enabled: true
+    drafts: false
+
+  # Wykluczenia pod to repo (LaTeX). Locki Node / dist są już w domyślnych
+  # ignorach CodeRabbit — nie trzeba ich tu powtarzać.
+  path_filters:
+    - "!**/build/**"
+    - "!**/release/**"
+    - "!**/diff_release/**"
+    - "!**/*-difforigin/**"
+    - "!**/*.aux"
+    - "!**/*.log"
+    - "!**/*.out"
+    - "!**/*.toc"
+    - "!**/*.fls"
+    - "!**/*.fdb_latexmk"
+    - "!**/*.synctex.gz"
+
+  path_instructions:
+    - path: "**/*.tex"
+      instructions: |
+        To dokumentacja systems-engineering (LaTeX) projektu Rurku.
+        Skup się na: spójności wymagań/ID, śledzeniu (traceability),
+        jasności dla inżynierów, brakujących odwołaniach między SRD/CONOPS/SAD/TPTR/ICD,
+        oraz na tym czy `\todo{}` nie maskuje krytycznych luk w zmienianych sekcjach.
+        Nie nitpickuj drobnych kwestii stylu LaTeX, chyba że psują build albo czytelność.
+    - path: "**/{Makefile,*.yml,*.yaml}"
+      instructions: |
+        Sprawdź poprawność ścieżek, pinowanie obrazów CI oraz czy cele Make
+        i workflowy GitHub Actions są spójne między dokumentami.
