@@ -1,0 +1,53 @@
+\section{Propulsion and fluids}
+\label{sec:prop-fluids}
+
+\guidance{Describe \emph{what} the fluid system is and how blocks connect.
+Fill/vent/fire timelines stay in CONOPS; MEOP numbers as requirements stay in
+SRD --- quote them here only as architecture setpoints with a REQ ID.}
+
+\subsection{Propulsion block (PROP)}
+
+\begin{itemize}
+  \item \textbf{Architecture:} \todo{regeneratively cooled chamber / ablative /
+    \ldots; pintle / showerhead injector; e-match / torch ignition}
+  \item \textbf{Major hardware:} \todo{chamber, nozzle, injector, igniters}
+  \item \textbf{Sensors owned here:} \todo{chamber pressure taps, \ldots}
+  \item \textbf{SRD anchors:} ENG-001 \ldots ENG-00x
+\end{itemize}
+
+\subsection{Tanks and feed (FEED)}
+
+\begin{itemize}
+  \item \textbf{Tanks:} \todo{EtOH volume / material; N\textsubscript{2}O volume /
+    material; N\textsubscript{2} COPV}
+  \item \textbf{Pressurization:} \todo{blowdown / regulated; target supercharge
+    pressures (cite SRD / as-run notes)}
+  \item \textbf{Valves:} \todo{main EtOH, main N\textsubscript{2}O, pressurant,
+    vents, dump --- onboard vs GSE}
+  \item \textbf{Check valves / orifices:} \todo{locations that set $\Delta p$}
+\end{itemize}
+
+\subsection{Fluid schematic}
+
+\todo{Add \texttt{figures/fluid-schematic.pdf} (P\&ID-lite): tanks, valves,
+sensors, fill/vent ports, engine. Tag components with FEED-/PROP- IDs.}
+
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=\textwidth]{figures/fluid-schematic.pdf}
+%   \caption{Propellant and pressurant schematic.}
+%   \label{fig:fluid}
+% \end{figure}
+
+\subsection{Key design parameters (architecture view)}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X l@{}}
+\toprule
+\textbf{Parameter} & \textbf{Architecture value / note} & \textbf{SRD / source} \\
+\midrule
+Propellants & \todo{EtOH / N\textsubscript{2}O + N\textsubscript{2}} & ENG-001 \\
+Nominal chamber pressure & \todo{bar} & ENG-002 \\
+Burn time (design) & \todo{s} & ENG-002 \\
+Feed $\Delta p$ budget & \todo{bar (channels / injector)} & \todo{} \\
+\bottomrule
+\end{tabularx}

@@ -1,0 +1,36 @@
+\section{Architecture conventions}
+
+\guidance{Keep IDs stable. When a block moves owner, update the table --- do not
+silently invent a new name.}
+
+\subsection{Block ID scheme}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\toprule
+\textbf{Prefix} & \textbf{Meaning} \\
+\midrule
+\texttt{SYS-} & System-level / vehicle context \\
+\texttt{PROP-} & Propulsion (chamber, injector, ignition) \\
+\texttt{FEED-} & Tanks, feed lines, onboard valves \\
+\texttt{STR-} & Structures / aerostructure \\
+\texttt{REC-} & Recovery hardware \\
+\texttt{AV-} & Avionics / onboard electronics \\
+\texttt{GSE-} & Ground support equipment \\
+\texttt{IF-} & Named interface (summary; detail $\rightarrow$ ICD) \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Figures}
+
+\begin{itemize}
+  \item Store under \texttt{figures/}; reference with
+    \texttt{\textbackslash includegraphics}.
+  \item Prefer PDF/SVG for diagrams; PNG for photos of hardware.
+  \item Caption must state revision / date if the figure is a living sketch.
+\end{itemize}
+
+\subsection{Change rule}
+
+Architecture boundary changes (new subsystem, moved ownership, new primary
+interface) require a SAD revision note in the changelog and a check against
+affected SRD IDs / CONOPS procedures.

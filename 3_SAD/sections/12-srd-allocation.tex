@@ -1,0 +1,22 @@
+\section{SRD allocation}
+\label{sec:srd-allocation}
+
+\guidance{Trace requirements to the architecture block that realizes them.
+Do not rewrite the requirement text --- ID + block + note is enough.}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l l X@{}}
+\toprule
+\textbf{REQ ID} & \textbf{Primary block(s)} & \textbf{Architecture note} \\
+\midrule
+MIS-001 & SYS + SIM & envelope drives mass / performance budgets \\
+ENG-002 & PROP & thrust / burn architecture \\
+ENG-004 & FEED + GSE & feed supports CF / fueling interfaces \\
+AERO-001 & STR & load path / FoS architecture \\
+AV-001 & AV + REC & deploy event path \\
+AV-003 & AV (+ GSE) & arming inhibit architecture \\
+REC-001 & REC & descent architecture \\
+GSE-00x & GSE & remote safing path \\
+SAF-00x & SYS & cross-cutting inhibits \\
+\todo{\ldots} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabularx}

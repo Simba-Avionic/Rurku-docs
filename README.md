@@ -8,6 +8,7 @@ Repozytorium dokumentacji projektu rakietowego. Tu trzymamy decyzje, wymagania i
 | --- | --- | --- |
 | [`1_SRD/`](1_SRD/) | System Requirements Document | `make` → `Rurku_SRD.pdf` |
 | [`2_CONOPS/`](2_CONOPS/) | Concept of Operations | `make` → `Rurku_CONOPS.pdf` |
+| [`3_SAD/`](3_SAD/) | System Architecture Document | `make` → `Rurku_SAD.pdf` |
 | [`4_TPTR/`](4_TPTR/) | Test Plan + Test Report | `make` → `Rurku_TPTR.pdf` |
 
 ---
@@ -35,6 +36,7 @@ Można też zbudować pojedynczy PDF z katalogu głównego, podając nazwę fold
 ```bash
 make 1_SRD
 make 2_CONOPS
+make 3_SAD
 make 4_TPTR
 ```
 
@@ -58,6 +60,7 @@ Najprostsza droga do jednakowego środowiska. Używamy gotowego obrazu:
 ```bash
 cd 1_SRD && make
 cd ../2_CONOPS && make
+cd ../3_SAD && make
 cd ../4_TPTR && make
 ```
 
@@ -70,6 +73,7 @@ z assetami w formacie `Nazwa_wersja.pdf`:
 
 - `Rurku_SRD_v1.0.pdf`
 - `Rurku_CONOPS_v1.0.pdf`
+- `Rurku_SAD_v1.0.pdf`
 - `Rurku_TPTR_v1.0.pdf`
 
 ```bash
@@ -101,6 +105,7 @@ Potem:
 ```bash
 cd 1_SRD && make
 cd ../2_CONOPS && make
+cd ../3_SAD && make
 cd ../4_TPTR && make
 ```
 
@@ -131,6 +136,8 @@ cd 1_SRD
 make
 cd ..\2_CONOPS
 make
+cd ..\3_SAD
+make
 cd ..\4_TPTR
 make
 ```
@@ -142,7 +149,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build srd.tex
 copy build\srd.pdf Rurku_SRD.pdf
 ```
 
-(dla CONOPS: `conops.tex` → `Rurku_CONOPS.pdf`; dla TPTR: `tptr.tex` → `Rurku_TPTR.pdf`).
+(dla CONOPS: `conops.tex` → `Rurku_CONOPS.pdf`; SAD: `sad.tex` → `Rurku_SAD.pdf`; TPTR: `tptr.tex` → `Rurku_TPTR.pdf`).
 
 ---
 
@@ -151,6 +158,7 @@ copy build\srd.pdf Rurku_SRD.pdf
 ```bash
 cd 1_SRD && make clean
 cd ../2_CONOPS && make clean
+cd ../3_SAD && make clean
 cd ../4_TPTR && make clean
 ```
 
@@ -204,7 +212,7 @@ Szablon: [`2_CONOPS/`](2_CONOPS/).
 
 ---
 
-## 3. System Architecture Document
+## 3. System Architecture Document (SAD)
 
 **Pytanie, na które odpowiada:** *Jak podzielony jest system?*
 
@@ -223,12 +231,18 @@ Rakieta
 └── Ground Support Equipment
 ```
 
-- diagramy blokowe
-- schemat przepływu paliwa
-- schemat elektryczny wysokiego poziomu
-- opis odpowiedzialności każdego podsystemu
+- diagramy blokowe / kontekstowe
+- schemat przepływu paliwa (P&ID-lite)
+- schemat elektryczny / danych wysokiego poziomu
+- rejestr interfejsów (szczegóły → ICD)
+- budżety masy / mocy / objętości
+- mapowanie wymagań SRD → bloki architektury
+
+**Czego tu nie duplikować:** tabele Must/Should (SRD), timeline i role na padzie (CONOPS), procedury i wyniki testów (TPTR), pinouty (ICD).
 
 **Kiedy aktualizować:** gdy dodajesz / usuwasz podsystem albo zmieniasz granice odpowiedzialności między nimi.
+
+Szablon: [`3_SAD/`](3_SAD/).
 
 ---
 
@@ -261,4 +275,3 @@ Szablon LaTeX: [`4_TPTR/`](4_TPTR/) (`make` → `Rurku_TPTR.pdf`).
 
 # ToDO
 - Add [ICD](https://en.wikipedia.org/wiki/Interface_control_document)
-- Add template for SAD

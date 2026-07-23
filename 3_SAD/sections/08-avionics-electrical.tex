@@ -1,0 +1,40 @@
+\section{Avionics and electrical}
+\label{sec:avionics}
+
+\guidance{High-level power and data only. Full pinouts and CAN/UART maps belong
+in ICD. Arming \emph{procedures} belong in CONOPS.}
+
+\subsection{Avionics blocks (AV)}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\toprule
+\textbf{Block} & \textbf{Function} & \textbf{Notes} \\
+\midrule
+Flight computer & events, logging, recovery trigger & \todo{HW rev / FW} \\
+Power & batteries, distribution, arming switch & \todo{} \\
+Sensors & IMU / baro / GPS / \ldots & \todo{} \\
+Telemetry radio & live TM to ground & \todo{band / link} \\
+Pyro / deploy drivers & recovery channels & \todo{inhibit architecture} \\
+Engine board(s) & valve / igniter drive if onboard & \todo{vs pure GSE} \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Electrical / data overview}
+
+\todo{Add \texttt{figures/electrical-overview.pdf}: batteries $\rightarrow$
+buses $\rightarrow$ boards; RF link to ground station; GSE umbilical if any.}
+
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{figures/electrical-overview.pdf}
+%   \caption{Electrical and data overview.}
+%   \label{fig:electrical}
+% \end{figure}
+
+\subsection{Software architecture (blocks only)}
+
+\begin{itemize}
+  \item \todo{Flight software modules / repos (link)}
+  \item \todo{Ground software (srp-app / \ldots) --- ownership vs GSE}
+  \item \todo{Mode names may match CONOPS; do not redefine timelines here}
+\end{itemize}
