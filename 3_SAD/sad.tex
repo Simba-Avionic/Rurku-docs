@@ -1,0 +1,58 @@
+%===============================================================================
+% Rurku — System Architecture Document (SAD)
+% Template for a student liquid-rocket project.
+%
+% Fill sections/ and metadata in config.tex.
+% Build: make
+%===============================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{pifont}
+
+\geometry{margin=2.5cm}
+\setlength{\headheight}{14pt}
+\graphicspath{{../common/}{figures/}}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue!50!black, citecolor=black}
+
+\input{config}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\ProjectName\ --- \DocTitle}
+\fancyhead[R]{v\DocVersion}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\DocStatus}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\input{sections/00-frontmatter}
+\input{sections/01-purpose}
+\input{sections/02-context}
+\input{sections/03-scope}
+\input{sections/04-conventions}
+\input{sections/05-system-overview}
+\input{sections/06-propulsion-fluids}
+\input{sections/07-structures-recovery}
+\input{sections/08-avionics-electrical}
+\input{sections/09-gse}
+\input{sections/10-interfaces}
+\input{sections/11-budgets}
+\input{sections/12-srd-allocation}
+\input{sections/13-appendices}
+\input{sections/99-changelog}
+
+\end{document}

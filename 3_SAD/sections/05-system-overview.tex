@@ -1,0 +1,62 @@
+\section{System overview}
+\label{sec:sys-overview}
+
+\guidance{This is the map of the project. Keep it one page of text + one
+context figure. Do not paste CONOPS timelines here.}
+
+\subsection{Top-level breakdown}
+
+\begin{verbatim}
+Vehicle (SYS)
+|-- Propulsion (PROP)     --- chamber, injector, ignition
+|-- Tanks / Feed (FEED)   --- EtOH, N2O, N2 paths, valves
+|-- Aerostructure (STR)   --- airframe, fins, mounts, rail
+|-- Avionics (AV)         --- FC, power, TM, arming
+|-- Recovery (REC)        --- deploy, parachutes, tracking
+ GSE (GSE)  --- fill, remote valves, pad power/control
+\end{verbatim}
+
+\subsection{Context diagram}
+
+\todo{Add \texttt{figures/sys-context.pdf}: vehicle + GSE + ground station +
+people as black boxes and primary links (fluid / electrical / RF).}
+
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{figures/sys-context.pdf}
+%   \caption{System context: vehicle, GSE, ground station.}
+%   \label{fig:sys-context}
+% \end{figure}
+
+\subsection{Block diagram (vehicle)}
+
+\todo{Add \texttt{figures/sys-blocks.pdf}: internal vehicle blocks and
+interfaces between them.}
+
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{figures/sys-blocks.pdf}
+%   \caption{Vehicle block diagram.}
+%   \label{fig:sys-blocks}
+% \end{figure}
+
+\subsection{Subsystem summary}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\toprule
+\textbf{Block} & \textbf{Responsibility} & \textbf{Does not own} \\
+\midrule
+PROP & Thrust generation, ignition, engine MEOP hardware &
+  Pad fueling procedures (CONOPS); thrust \emph{requirement} (SRD) \\
+FEED & Propellant / pressurant storage and delivery to PROP &
+  Engine injector design internals \\
+STR & Structural load path, OML, integration mounts &
+  Propellant chemistry \\
+AV & Onboard compute, sensing, power, RF link &
+  Pad radio net design details (may share with GSE) \\
+REC & Safe descent and locate-ability &
+  Flight trajectory design (SIM / SRD) \\
+GSE & Safe remote fueling, valve actuation, pad DAQ &
+  Onboard flight events after disconnect \\
+\bottomrule
+\end{tabularx}
