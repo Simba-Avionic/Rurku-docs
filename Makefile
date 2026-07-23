@@ -1,6 +1,6 @@
 DOCUMENTS := 1_SRD 2_CONOPS 3_SAD 4_TPTR 5_ICD
 
-.PHONY: all clean $(DOCUMENTS)
+.PHONY: all clean release $(DOCUMENTS)
 
 all: $(DOCUMENTS)
 
@@ -11,10 +11,11 @@ clean:
 	for dir in $(DOCUMENTS); do \
 		$(MAKE) -C $$dir clean; \
 	done
+	rm -rf release
 
 release: all
 	@if [ -z "$(VERSION)" ]; then \
-		echo "Błąd: Musisz podać wersję, np. podając 'make release VERSION=1.0.0'"; \
+		echo "Błąd: Musisz podać wersję, np. 'make release VERSION=v1.0'"; \
 		exit 1; \
 	fi
 	mkdir -p release
