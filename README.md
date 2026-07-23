@@ -42,6 +42,23 @@ make 4_TPTR
 make 5_ICD
 ```
 
+### Diff względem `master` (latexdiff)
+
+PDF z zaznaczonymi zmianami względem gałęzi `master` (wymaga `latexdiff` / `latexdiff-vc`).
+Wynik trafia do `diff_release/`:
+
+```bash
+# jeden dokument
+cd 1_SRD && make diff          # → diff_release/Rurku_SRD_diff.pdf
+
+# wszystkie dokumenty z katalogu głównego
+make diff
+
+# inny ref niż master
+make diff DIFF_REF=origin/master
+cd 4_TPTR && make diff DIFF_REF=v0.2
+```
+
 ### Opcja A — Dev Container / Docker (Windows i Linux)
 
 Najprostsza droga do jednakowego środowiska. Używamy gotowego obrazu:

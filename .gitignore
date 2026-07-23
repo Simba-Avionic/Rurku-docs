@@ -1,4 +1,6 @@
 *.pdf
 **/build/
+*-difforigin/
 .devcontainer/devcontainer-lock.json
-release
+release/
+diff_release/
