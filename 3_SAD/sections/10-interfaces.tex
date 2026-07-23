@@ -10,14 +10,17 @@ When ICD exists, keep only the index here and point to ICD sections.}
 \toprule
 \textbf{ID} & \textbf{From} & \textbf{To} & \textbf{Type / content} & \textbf{ICD?} \\
 \midrule
-IF-001 & FEED & PROP & fluid (EtOH / N\textsubscript{2}O to injector) & \todo{} \\
-IF-002 & FEED & GSE & fluid fill / vent / dump ports & \todo{} \\
-IF-003 & PROP & STR & mechanical mounts / loads & \todo{} \\
-IF-004 & FEED & STR & tank mounts / plumbing clamps & \todo{} \\
-IF-005 & AV & REC & deploy fire / inhibit & \todo{} \\
-IF-006 & AV & GSE & umbilical data / power / arming & \todo{} \\
-IF-007 & AV & Ground & RF telemetry & \todo{} \\
-IF-008 & GSE & PROP/FEED & remote valve / igniter drive & \todo{} \\
+IF-001 & FEED & PROP & fluid (EtOH / N\textsubscript{2}O to injector) & ICD \\
+IF-002 & FEED & GSE & fluid fill / vent / dump ports & ICD \\
+IF-003 & PROP & STR & mechanical mounts / loads & ICD \\
+IF-004 & FEED & STR & tank mounts / plumbing clamps & ICD \\
+IF-005 & AV & REC & deploy fire / inhibit & ICD \\
+IF-006 & AV & GSE & umbilical data / power / arming & ICD \\
+IF-007 & AV & Ground & RF telemetry & ICD \\
+IF-008 & GSE & PROP/FEED & remote valve / igniter drive & ICD \\
 \todo{IF-\ldots} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \bottomrule
 \end{tabularx}
+
+\guidance{Detailed definitions live in the ICD (\texttt{5\_ICD/}). Keep this
+table as the architecture index only.}

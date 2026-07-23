@@ -10,6 +10,7 @@ Repozytorium dokumentacji projektu rakietowego. Tu trzymamy decyzje, wymagania i
 | [`2_CONOPS/`](2_CONOPS/) | Concept of Operations | `make` → `Rurku_CONOPS.pdf` |
 | [`3_SAD/`](3_SAD/) | System Architecture Document | `make` → `Rurku_SAD.pdf` |
 | [`4_TPTR/`](4_TPTR/) | Test Plan + Test Report | `make` → `Rurku_TPTR.pdf` |
+| [`5_ICD/`](5_ICD/) | Interface Control Document | `make` → `Rurku_ICD.pdf` |
 
 ---
 
@@ -38,6 +39,7 @@ make 1_SRD
 make 2_CONOPS
 make 3_SAD
 make 4_TPTR
+make 5_ICD
 ```
 
 ### Opcja A — Dev Container / Docker (Windows i Linux)
@@ -62,6 +64,7 @@ cd 1_SRD && make
 cd ../2_CONOPS && make
 cd ../3_SAD && make
 cd ../4_TPTR && make
+cd ../5_ICD && make
 ```
 
 ### Wydanie (tag → GitHub Release)
@@ -75,6 +78,7 @@ z assetami w formacie `Nazwa_wersja.pdf`:
 - `Rurku_CONOPS_v1.0.pdf`
 - `Rurku_SAD_v1.0.pdf`
 - `Rurku_TPTR_v1.0.pdf`
+- `Rurku_ICD_v1.0.pdf`
 
 ```bash
 git tag v1.0
@@ -107,6 +111,7 @@ cd 1_SRD && make
 cd ../2_CONOPS && make
 cd ../3_SAD && make
 cd ../4_TPTR && make
+cd ../5_ICD && make
 ```
 
 Opcjonalnie (jak w obrazie Dockera) czcionki MS:
@@ -140,6 +145,8 @@ cd ..\3_SAD
 make
 cd ..\4_TPTR
 make
+cd ..\5_ICD
+make
 ```
 
 Jeśli `make` nie działa, w każdym folderze dokumentu:
@@ -149,7 +156,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build srd.tex
 copy build\srd.pdf Rurku_SRD.pdf
 ```
 
-(dla CONOPS: `conops.tex` → `Rurku_CONOPS.pdf`; SAD: `sad.tex` → `Rurku_SAD.pdf`; TPTR: `tptr.tex` → `Rurku_TPTR.pdf`).
+(dla CONOPS: `conops.tex` → `Rurku_CONOPS.pdf`; SAD: `sad.tex` → `Rurku_SAD.pdf`; TPTR: `tptr.tex` → `Rurku_TPTR.pdf`; ICD: `icd.tex` → `Rurku_ICD.pdf`).
 
 ---
 
@@ -160,6 +167,7 @@ cd 1_SRD && make clean
 cd ../2_CONOPS && make clean
 cd ../3_SAD && make clean
 cd ../4_TPTR && make clean
+cd ../5_ICD && make clean
 ```
 
 ---
@@ -271,7 +279,38 @@ Szablon: [`3_SAD/`](3_SAD/).
 
 Szablon LaTeX: [`4_TPTR/`](4_TPTR/) (`make` → `Rurku_TPTR.pdf`).
 
+---
 
+## 5. Interface Control Document (ICD)
 
-# ToDO
-- Add [ICD](https://en.wikipedia.org/wiki/Interface_control_document)
+**Pytanie, na które odpowiada:** *Jak dokładnie łączą się bloki systemu?*
+
+**Po co:** ICD rejestruje, definiuje i kontroluje informacje o interfejsach między systemami, podsystemami, sprzętem albo oprogramowaniem ([Wikipedia](https://en.wikipedia.org/wiki/Interface_control_document)). To wspólny punkt odniesienia przy integracji: różne zespoły mogą osobno budować strony złącza, ale muszą się zgadzać co do sygnałów, protokołów, mechaniki i odpowiedzialności. Bez tego „u nas działa” pada na stole integracyjnym.
+
+W systems engineering interfejs to wspólna granica jednostek funkcjonalnych — cechy funkcyjne, wymiana sygnałów / danych / mediów i inne atrybuty techniczne. ICD wspiera integrację, weryfikację, walidację oraz zarządzanie konfiguracją i zmianami.
+
+**Co powinno zawierać** (treść zależy od typu złącza; typowy zestaw):
+- identyfikacja interfejsu (ID z rejestru SAD, np. `IF-00x`)
+- strony złącza (bloki / właściciele po obu stronach)
+- sygnały wejścia / wyjścia; komunikaty i protokoły
+- typy danych, jednostki, skale, limity i tolerancje
+- częstotliwość / okres transmisji
+- złącza i cechy fizyczne (wymiary, montaż, MEOP, napięcia, prądy)
+- diagramy, rysunki, tabele
+- odpowiedzialności stron
+- historia zatwierdzonych zmian
+
+**Typy interfejsów do opisania:**
+- fizyczne / mechaniczne (złącza, punkty montażu, wymiary)
+- elektryczne (napięcia, prądy, sygnały dyskretne, zasilanie)
+- fluidyczne (przyłącza, media, ciśnienia — typowe u nas: FEED ↔ GSE / PROP)
+- dane / komunikacja (protokoły, magistrale, format wiadomości)
+- hardware–software (rejestry, sensory, aktuatory)
+- opcjonalnie HMI (operator ↔ panel GSE), jeśli to krytyczne dla kompatybilności
+
+**Czego tu nie duplikować:** mapa podziału podsystemów i budżety (SAD); Must/Should (SRD); procedury na padzie (CONOPS); wyniki testów (TPTR). ICD opisuje *rozwiązanie interfejsu*; wymagania wysokiego poziomu zostają w SRD (ew. osobny IRD nie jest nam na start potrzebny).
+
+**Kiedy aktualizować:** przy każdej zmianie pinoutu, protokołu, fittingu, limitu albo strony odpowiedzialnej — z analizą wpływu na drugą stronę złącza (configuration / change control). Zatwierdzona zmiana interfejsu bez aktualizacji ICD to błąd procesu.
+
+Szablon: [`5_ICD/`](5_ICD/) (`make` → `Rurku_ICD.pdf`).
+

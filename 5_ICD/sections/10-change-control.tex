@@ -1,0 +1,23 @@
+\section{Change control}
+
+Once an interface is \textbf{Approved}, treat it as configuration-controlled.
+
+\subsection{When a change is required}
+
+Examples: pin remap, fitting standard, MEOP, voltage level, message field,
+baud rate, connector gender, owner of a side.
+
+\subsection{Process}
+
+\begin{enumerate}
+  \item Propose change on the IF sheet (mark status Proposed / draft delta).
+  \item Impact analysis: which hardware, firmware, GSE, and tests break?
+  \item Both-side owner approval (or project-lead waiver).
+  \item Update ICD sheet + register status; note revision in IF history and
+    document changelog.
+  \item Update SAD register if From/To/type changed.
+  \item Schedule re-integration / TPTR checks that exercise the interface.
+\end{enumerate}
+
+\guidance{Shipping a physical change without an ICD update is a process
+failure --- even if ``it still works on the bench''.}

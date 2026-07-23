@@ -1,0 +1,45 @@
+\section{Conventions}
+
+\subsection{IF ID scheme}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\toprule
+\textbf{Form} & \textbf{Meaning} \\
+\midrule
+\texttt{IF-NNN} & Controlled interface, numbered in SAD + ICD register \\
+\texttt{IF-XXX-000} & Blank template (do not use as a real interface) \\
+\bottomrule
+\end{tabularx}
+
+IDs are allocated in SAD first, then detailed here. Do not invent a parallel
+numbering scheme.
+
+\subsection{Interface types}
+
+\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\toprule
+\textbf{Type} & \textbf{Typical content} \\
+\midrule
+Mechanical / physical & mounts, dimensions, fasteners, load path notes \\
+Fluid & fittings, media, MEOP, flow direction, leak criteria pointer \\
+Electrical & voltages, currents, pinouts, grounding, isolation \\
+Data / communication & protocol, baud / rate, message fields, encoding \\
+Hardware--software & registers, sensor/actuator semantics, timing \\
+HMI & operator actions / indications that are part of compatibility \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Status}
+
+\begin{itemize}
+  \item \textbf{Draft} --- under discussion; not baseline for integration
+  \item \textbf{Proposed} --- filled; awaiting both-side approval
+  \item \textbf{Approved} --- baseline; changes need change control
+  \item \textbf{Obsolete} --- superseded; keep for history
+\end{itemize}
+
+\subsection{Units and limits}
+
+Always state units. Prefer SI. For pressures use bar (absolute / gauge --- say
+which). For electrical: V, A, $\Omega$. For data: bit order / endianness if
+relevant.
