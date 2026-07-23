@@ -59,7 +59,7 @@ make diff DIFF_REF=origin/master
 cd 4_TPTR && make diff DIFF_REF=v0.2
 ```
 
-### Opcja A — Dev Container / Docker (Windows i Linux)
+### Opcja A — Dev Container / Docker (Windows/Linux/MacOS)
 
 Najprostsza droga do jednakowego środowiska. Używamy gotowego obrazu:
 
@@ -70,10 +70,12 @@ Najprostsza droga do jednakowego środowiska. Używamy gotowego obrazu:
 #### Cursor / VS Code (zalecane)
 
 1. Zainstaluj [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-   (Windows: włącz WSL2 backend) albo Docker Engine (Linux).
+   (Macos czasami widzi Dockera jako malware - [rozwiązanie](https://github.com/docker/for-mac/issues/7527))
+   (Windows: włącz WSL2 backend) albo Docker Engine (Linux i Mac).
 2. Otwórz to repo w Cursor / VS Code.
 3. Command Palette → **Dev Containers: Reopen in Container**
    (pierwsze uruchomienie ściąga obraz ~z GHCR).
+   (VS Code potrafi się zwiesić na "Connecting to Dev Container", restart apki pomaga)
 4. W terminalu kontenera:
 
 ```bash
