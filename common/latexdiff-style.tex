@@ -1,0 +1,6 @@
+% Markup overrides for latexdiff (injected before \begin{document}).
+% Additions: dark green on yellow (default blue \uwave is hard to see).
+\renewcommand{\DIFaddtex}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \colorbox{yellow!85}{\textcolor{black!45!black}{#1}}}%
+}

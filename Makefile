@@ -1,6 +1,8 @@
 DOCUMENTS := 1_SRD 2_CONOPS 3_SAD 4_TPTR 5_ICD
 
-.PHONY: all clean release $(DOCUMENTS)
+DIFF_REF ?= master
+
+.PHONY: all clean release diff $(DOCUMENTS)
 
 all: $(DOCUMENTS)
 
@@ -11,7 +13,14 @@ clean:
 	for dir in $(DOCUMENTS); do \
 		$(MAKE) -C $$dir clean; \
 	done
-	rm -rf release
+	rm -rf release diff_release
+
+diff:
+	mkdir -p diff_release
+	for dir in $(DOCUMENTS); do \
+		$(MAKE) -C $$dir diff DIFF_REF="$(DIFF_REF)"; \
+	done
+	ls -la diff_release/
 
 release: all
 	@if [ -z "$(VERSION)" ]; then \
