@@ -1,21 +1,22 @@
-\section{IF-006 --- AV to GSE --- umbilical}
+\section{IF-006 --- Igniter channel}
 
 \begin{tabular}{@{}ll@{}}
 \textbf{ID:} & IF-006 \\
-\textbf{Title:} & AV to GSE --- umbilical \\
-\textbf{Type:} & Electrical / Data \\
+\textbf{Title:} & Igniter channel \\
+\textbf{Type:} & Electrical \\
 \textbf{Status:} & Draft \\
-\textbf{Revision:} & 0.1 \\
-\textbf{From (block):} & AV \\
-\textbf{To (block):} & GSE \\
-\textbf{Owner A:} & \todo{name / dept} \\
-\textbf{Owner B:} & \todo{name / dept} \\
+\textbf{Revision:} & 0.2 \\
+\textbf{From (block):} & AVIONICS \\
+\textbf{To (block):} & PROP \\
+\textbf{Owner A:} & \todo{Avionics} \\
+\textbf{Owner B:} & \todo{Engine / Propulsion} \\
 \end{tabular}
 
 \subsection*{Definition}
 
 \paragraph{Purpose}
-Umbilical for power, data, and arming between vehicle avionics and GSE.
+Igniter drive and continuity / fault sensing between avionics and PROP
+ignition hardware (see SRD AV-026, AV-027; GSE-003).
 
 \paragraph{Physical / connector / fitting}
 \begin{itemize}
@@ -39,43 +40,40 @@ Umbilical for power, data, and arming between vehicle avionics and GSE.
 \endfoot
 \bottomrule
 \endlastfoot
-\todo{} & A$\rightarrow$B / B$\rightarrow$A / bi & \todo{} & \todo{} \\
+\todo{IGN fire} & A$\rightarrow$B & Igniter fire pulse & Armed-only (GSE-003 / AV-003) \\
+\todo{IGN sense} & B$\rightarrow$A & Continuity / short / open detect & AV-026, AV-027 \\
 \end{xltabular}
 
 \paragraph{Data / protocol (if applicable)}
 \begin{itemize}
-  \item Protocol / bus: \todo{}
-  \item Rate / period: \todo{}
+  \item Protocol / bus: N/A (discrete / power)
+  \item Rate / period: event-driven
   \item Encoding / endianness / units: \todo{}
-  \item Message / field list: \todo{or link}
+  \item Message / field list: N/A
 \end{itemize}
 
 \paragraph{Electrical (if applicable)}
 \begin{itemize}
-  \item Voltage / current: \todo{}
+  \item Voltage / current: \todo{fire energy / pulse width}
   \item Pinout table: \todo{}
-  \item Grounding / isolation: \todo{}
+  \item Grounding / isolation: short-circuit immune per AV-026
 \end{itemize}
 
 \paragraph{Fluid (if applicable)}
-\begin{itemize}
-  \item Media: \todo{}
-  \item MEOP / proof: \todo{}
-  \item Flow direction / check valves: \todo{}
-\end{itemize}
+Not applicable.
 
 \paragraph{Diagrams}
 \todo{Path under figures/ or includegraphics.}
 
 \paragraph{Responsibilities}
 \begin{itemize}
-  \item Side A may change: \todo{}
-  \item Side B may change: \todo{}
-  \item Shared / needs both: \todo{}
+  \item Side A (AVIONICS) may change: fire driver, sense circuit, inhibits
+  \item Side B (PROP) may change: primer / igniter type within agreed load
+  \item Shared / needs both: channel count, polarity, safe/arm rules
 \end{itemize}
 
 \paragraph{Related SRD / TPTR}
-\todo{REQ IDs; TP-IDs that exercise this interface.}
+AV-026, AV-027, AV-003; GSE-003; \todo{TP-SF-*}
 
 \paragraph{IF change history}
 \begin{xltabular}{\linewidth}{@{}l l X@{}}
@@ -92,5 +90,5 @@ Umbilical for power, data, and arming between vehicle avionics and GSE.
 \endfoot
 \bottomrule
 \endlastfoot
-0.1 & 16.07.2026 & Initial shell from SAD register \\
+0.2 & \today & Retargeted to AVIONICS$\rightarrow$PROP igniter channel \\
 \end{xltabular}

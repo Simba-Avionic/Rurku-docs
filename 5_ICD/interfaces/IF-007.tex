@@ -1,27 +1,29 @@
-\section{IF-007 --- AV to Ground --- RF telemetry}
+\section{IF-007 --- Engine connectors}
 
 \begin{tabular}{@{}ll@{}}
 \textbf{ID:} & IF-007 \\
-\textbf{Title:} & AV to Ground --- RF telemetry \\
-\textbf{Type:} & Data / Communication \\
+\textbf{Title:} & Engine connectors \\
+\textbf{Type:} & Electrical / Mechanical \\
 \textbf{Status:} & Draft \\
-\textbf{Revision:} & 0.1 \\
-\textbf{From (block):} & AV \\
-\textbf{To (block):} & Ground \\
-\textbf{Owner A:} & \todo{name / dept} \\
-\textbf{Owner B:} & \todo{name / dept} \\
+\textbf{Revision:} & 0.2 \\
+\textbf{From (block):} & AVIONICS \\
+\textbf{To (block):} & STRUCTURE \\
+\textbf{Owner A:} & \todo{Avionics} \\
+\textbf{Owner B:} & \todo{Aerostructure} \\
 \end{tabular}
 
 \subsection*{Definition}
 
 \paragraph{Purpose}
-Live telemetry RF link from vehicle to ground station.
+Physical routing and connector interfaces between avionics harnesses and
+structure / engine bay (bulkheads, brackets, pass-throughs) so modules
+remain modular and serviceable (AV-018, AV-014).
 
 \paragraph{Physical / connector / fitting}
 \begin{itemize}
   \item Connector / fitting standard: \todo{}
   \item Gender / keying / mating face: \todo{}
-  \item Mounting / torque / seal: \todo{}
+  \item Mounting / torque / seal: \todo{bulkhead / clamp points}
 \end{itemize}
 
 \paragraph{Signals / media / messages}
@@ -39,43 +41,35 @@ Live telemetry RF link from vehicle to ground station.
 \endfoot
 \bottomrule
 \endlastfoot
-\todo{} & A$\rightarrow$B / B$\rightarrow$A / bi & \todo{} & \todo{} \\
+\todo{Harness pass} & A$\leftrightarrow$B & Engine-bay harness breakouts & Keep factory plugs (AV-024) \\
 \end{xltabular}
 
 \paragraph{Data / protocol (if applicable)}
-\begin{itemize}
-  \item Protocol / bus: \todo{}
-  \item Rate / period: \todo{}
-  \item Encoding / endianness / units: \todo{}
-  \item Message / field list: \todo{or link}
-\end{itemize}
+Not applicable (mechanical / connector envelope; carried signals defined on
+IF-003--IF-006).
 
 \paragraph{Electrical (if applicable)}
 \begin{itemize}
-  \item Voltage / current: \todo{}
-  \item Pinout table: \todo{}
-  \item Grounding / isolation: \todo{}
+  \item Voltage / current: per carried IFs
+  \item Pinout table: \todo{connector map}
+  \item Grounding / isolation: \todo{chassis bond}
 \end{itemize}
 
 \paragraph{Fluid (if applicable)}
-\begin{itemize}
-  \item Media: \todo{}
-  \item MEOP / proof: \todo{}
-  \item Flow direction / check valves: \todo{}
-\end{itemize}
+Not applicable.
 
 \paragraph{Diagrams}
 \todo{Path under figures/ or includegraphics.}
 
 \paragraph{Responsibilities}
 \begin{itemize}
-  \item Side A may change: \todo{}
-  \item Side B may change: \todo{}
-  \item Shared / needs both: \todo{}
+  \item Side A (AVIONICS) may change: harness length / pinout within envelope
+  \item Side B (STRUCTURE) may change: bracket / hole pattern within envelope
+  \item Shared / needs both: connector locations, strain relief, access for AV-014
 \end{itemize}
 
 \paragraph{Related SRD / TPTR}
-\todo{REQ IDs; TP-IDs that exercise this interface.}
+AV-014, AV-018, AV-024; \todo{TP-IDs}
 
 \paragraph{IF change history}
 \begin{xltabular}{\linewidth}{@{}l l X@{}}
@@ -92,6 +86,5 @@ Live telemetry RF link from vehicle to ground station.
 \endfoot
 \bottomrule
 \endlastfoot
-0.1 & 16.07.2026 & Initial shell from SAD register \\
+0.2 & \today & Retargeted to AVIONICS$\leftrightarrow$STRUCTURE engine connectors \\
 \end{xltabular}
-  
