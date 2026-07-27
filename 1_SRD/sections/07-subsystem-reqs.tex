@@ -53,15 +53,60 @@ AERO-005 & \todo{Additional aerostructure req.\ (mass budget share, integration)
 \toprule
 \textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
 \midrule
-AV-001 & Flight computer shall detect apogee / deploy events per recovery
-  requirements. & Must & T & \todo{} \\
-AV-002 & Telemetry shall be live to the ground station from T$-$\,\todo{} through
-  \todo{landing / loss of signal criteria}. & Must & T & \todo{} \\
-AV-003 & Arming shall require an explicit, reversible action distinct from
-  power-up (CONOPS armed mode). & Must & D & \todo{} \\
-AV-004 & Onboard power shall last $\geq$\,\todo{t}\,min in the worst-case
-  timeline (pad hold + flight + recovery search). & Must & T/A & \todo{} \\
-AV-005 & \todo{Recording / backup data / sensor suite requirements.} & \todo{} & \todo{} & \todo{} \\
+AV-001 & All onboard computers shall have synchronized time. & Must & T & \todo{} \\
+AV-002 & The rocket shall synchronize time with GSE. & Should & T & \todo{} \\
+AV-003 & All actuators shall be secured and shall require at least two
+  actions to activate. & Must & T & \todo{} \\
+AV-004 & All sensor data shall be saved on every computer. & Must & T & \todo{} \\
+AV-005 & The rocket shall know its position. & Must & T & \todo{} \\
+AV-006 & The rocket shall detect liftoff and allow abort after a failed
+  liftoff. & Must & T & \todo{} \\
+AV-007 & The rocket shall be able to auto-tank its tanks. & Could & T & \todo{} \\
+AV-008 & The rocket shall be able to reduce tank pressure when required. & Must & T & \todo{} \\
+AV-009 & GSE shall be able to disable AV-008 when personnel need to
+  approach the rocket. & Must & T & \todo{} \\
+AV-010 & All manual actions from GSE (e.g.\ venting) shall take effect
+  immediately on the rocket and shall immediately report the change as an
+  event. & Must & T & \todo{} \\
+AV-011 & The rocket shall remain on the launch pad for at least 6\,h
+  without charging. & Must & T & \todo{} \\
+AV-012 & The rocket shall have long-range communication with GSE
+  (downlink-only allowed) that works to at least $2\times$ target
+  altitude. & Must & T & \todo{} \\
+AV-013 & The rocket shall have a fast bidirectional communication link with
+  GSE (separate from AV-012) that works to at least 100\,m. & Should & \todo{} & \todo{} \\
+AV-014 & All electronic modules on the rocket shall be depowerable without
+  opening the rocket. & Must & T & \todo{} \\
+AV-015 & The rocket shall measure tank and chamber pressure (6 channels) at
+  $\geq$\,15\,Hz per channel. & Must & T & \todo{} \\
+AV-016 & Communication with GSE shall carry all required data using no more
+  than 50\% of the allowed duty cycle. & Must & A & \todo{} \\
+AV-017 & All radio communication shall support EU and USA settings, with an
+  easy mode switch. & Must & I & \todo{} \\
+AV-018 & All avionics components shall be modular and easy to replace under
+  all operating conditions. & Must & I/D & \todo{} \\
+AV-019 & Avionics shall be able to drive at least 8 servo motors. & Must & \todo{} & \todo{} \\
+AV-020 & Each servo-motor channel shall provide a way to disable motor power
+  other than ARM. & Must & A & \todo{} \\
+AV-021 & All external communication shall include a method of user
+  authentication (cryptography). & Should & \todo{} & \todo{} \\
+AV-022 & All boards shall measure internal board temperature and air
+  temperature inside the rocket at $\geq$\,1\,Hz. & Must & \todo{} & \todo{} \\
+AV-023 & The rocket shall measure acceleration, speed, air pressure, etc.\ at
+  $\geq$\,15\,Hz. & Should & \todo{} & \todo{} \\
+AV-024 & All components with factory cables shall use those cables; changing
+  plugs on motors etc.\ is not allowed. & Must & \todo{} & \todo{} \\
+AV-025 & All boards shall measure battery level and raise an alarm on
+  anomalies. & Must & \todo{} & \todo{} \\
+AV-026 & Igniter ports shall be immune to short circuit (one short-circuited
+  primer shall not cause launch failure). & Must & \todo{} & \todo{} \\
+AV-027 & Igniter ports shall detect short circuit and open circuit. & Should & \todo{} & \todo{} \\
+AV-028 & All motors shall be commandable to the closed position from GSE. & Must & \todo{} & \todo{} \\
+AV-029 & Only necessary actions shall be available from the GSE control
+  panel (CP). & Must & \todo{} & \todo{} \\
+AV-030 & All rocket components shall be remotely restartable from GSE. & Must & \todo{} & \todo{} \\
+AV-031 & It shall be possible to achieve a rocket state safe to approach
+  under all conditions. & Must & \todo{} & \todo{} \\
 \bottomrule
 \end{tabularx}
 
