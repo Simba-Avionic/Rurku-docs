@@ -4,10 +4,20 @@
 \guidance{Keep aligned with SAD interface register. Status here is the ICD
 baseline status of the detailed sheet.}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l l l X l@{}}
+\begin{xltabular}{\linewidth}{@{}l l l X l@{}}
 \toprule
 \textbf{ID} & \textbf{From} & \textbf{To} & \textbf{Type / content} & \textbf{Status} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{From} & \textbf{To} & \textbf{Type / content} & \textbf{Status} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 IF-001 & FEED & PROP & fluid (EtOH / N\textsubscript{2}O to injector) & Draft \\
 IF-002 & FEED & GSE & fluid fill / vent / dump ports & Draft \\
 IF-003 & PROP & STR & mechanical mounts / loads & Draft \\
@@ -17,5 +27,4 @@ IF-006 & AV & GSE & umbilical data / power / arming & Draft \\
 IF-007 & AV & Ground & RF telemetry & Draft \\
 IF-008 & GSE & PROP/FEED & remote valve / igniter drive & Draft \\
 \todo{IF-\ldots} & \todo{} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}

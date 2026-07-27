@@ -2,32 +2,50 @@
 
 \subsection{IF ID scheme}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Form} & \textbf{Meaning} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Form} & \textbf{Meaning} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 \texttt{IF-NNN} & Controlled interface, numbered in SAD + ICD register \\
 \texttt{IF-XXX-000} & Blank template (do not use as a real interface) \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 IDs are allocated in SAD first, then detailed here. Do not invent a parallel
 numbering scheme.
 
 \subsection{Interface types}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Type} & \textbf{Typical content} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Type} & \textbf{Typical content} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Mechanical / physical & mounts, dimensions, fasteners, load path notes \\
 Fluid & fittings, media, MEOP, flow direction, leak criteria pointer \\
 Electrical & voltages, currents, pinouts, grounding, isolation \\
 Data / communication & protocol, baud / rate, message fields, encoding \\
 Hardware--software & registers, sensor/actuator semantics, timing \\
 HMI & operator actions / indications that are part of compatibility \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \subsection{Status}
 

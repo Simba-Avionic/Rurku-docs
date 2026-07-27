@@ -6,10 +6,20 @@ When ICD exists, keep only the index here and point to ICD sections.}
 
 \subsection{Interface register}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l l l X l@{}}
+\begin{xltabular}{\linewidth}{@{}l l l X l@{}}
 \toprule
 \textbf{ID} & \textbf{From} & \textbf{To} & \textbf{Type / content} & \textbf{ICD?} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{From} & \textbf{To} & \textbf{Type / content} & \textbf{ICD?} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 IF-001 & FEED & PROP & fluid (EtOH / N\textsubscript{2}O to injector) & ICD \\
 IF-002 & FEED & GSE & fluid fill / vent / dump ports & ICD \\
 IF-003 & PROP & STR & mechanical mounts / loads & ICD \\
@@ -19,8 +29,7 @@ IF-006 & AV & GSE & umbilical data / power / arming & ICD \\
 IF-007 & AV & Ground & RF telemetry & ICD \\
 IF-008 & GSE & PROP/FEED & remote valve / igniter drive & ICD \\
 \todo{IF-\ldots} & \todo{} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \guidance{Detailed definitions live in the ICD (\texttt{5\_ICD/}). Keep this
 table as the architecture index only.}

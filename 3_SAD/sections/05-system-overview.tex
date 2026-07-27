@@ -42,10 +42,20 @@ interfaces between them.}
 
 \subsection{Subsystem summary}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\begin{xltabular}{\linewidth}{@{}l X X@{}}
 \toprule
 \textbf{Block} & \textbf{Responsibility} & \textbf{Does not own} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Block} & \textbf{Responsibility} & \textbf{Does not own} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 PROP & Thrust generation, ignition, engine MEOP hardware &
   Pad fueling procedures (CONOPS); thrust \emph{requirement} (SRD) \\
 FEED & Propellant / pressurant storage and delivery to PROP &
@@ -58,5 +68,4 @@ REC & Safe descent and locate-ability &
   Flight trajectory design (SIM / SRD) \\
 GSE & Safe remote fueling, valve actuation, pad DAQ &
   Onboard flight events after disconnect \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}

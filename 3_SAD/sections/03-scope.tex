@@ -14,17 +14,26 @@
 
 \subsection{Out of scope (do not duplicate)}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Content} & \textbf{Document} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Content} & \textbf{Document} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Measurable requirements, priority, V\&V methods & SRD \\
 Campaign stages, pad roles, countdown, contingencies & CONOPS \\
 Test plans, DAQ plots, pass/fail evidence & TPTR \\
 Detailed pinouts, connector BOMs, protocol fields & ICD (planned) \\
 CAD part trees, detailed drawings & CAD vault / appendices links \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \subsection{Assumptions}
 
