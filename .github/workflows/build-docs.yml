@@ -20,11 +20,6 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Install git and latexdiff
-        run: |
-          apt-get update
-          apt-get install -y --no-install-recommends git latexdiff ca-certificates
-
       - name: Checkout
         uses: actions/checkout@v7
         with:
@@ -45,15 +40,17 @@ jobs:
           path: diff_release/*.pdf
           if-no-files-found: error
           retention-days: 7
+
       - name: Find existing artifact comment
-        uses: peter-evans/find-comment@v3
+        uses: peter-evans/find-comment@v4
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          comment-author: github-actions[bot]
+          comment-author: 'github-actions[bot]'
           body-includes: '<!-- docs-diff-pdfs -->'
+          direction: last
 
-      - name: Komentarz z bezpośrednim linkiem
+      - name: Post or update comment
         uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
