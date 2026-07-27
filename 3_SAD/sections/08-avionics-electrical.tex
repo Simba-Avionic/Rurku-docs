@@ -6,18 +6,27 @@ in ICD. Arming \emph{procedures} belong in CONOPS.}
 
 \subsection{Avionics blocks (AV)}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\begin{xltabular}{\linewidth}{@{}l X X@{}}
 \toprule
 \textbf{Block} & \textbf{Function} & \textbf{Notes} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Block} & \textbf{Function} & \textbf{Notes} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Flight computer & events, logging, recovery trigger & \todo{HW rev / FW} \\
 Power & batteries, distribution, arming switch & \todo{} \\
 Sensors & IMU / baro / GPS / \ldots & \todo{} \\
 Telemetry radio & live TM to ground & \todo{band / link} \\
 Pyro / deploy drivers & recovery channels & \todo{inhibit architecture} \\
 Engine board(s) & valve / igniter drive if onboard & \todo{vs pure GSE} \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \subsection{Electrical / data overview}
 

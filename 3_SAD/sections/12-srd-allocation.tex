@@ -4,10 +4,20 @@
 \guidance{Trace requirements to the architecture block that realizes them.
 Do not rewrite the requirement text --- ID + block + note is enough.}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l l X@{}}
+\begin{xltabular}{\linewidth}{@{}l l X@{}}
 \toprule
 \textbf{REQ ID} & \textbf{Primary block(s)} & \textbf{Architecture note} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{REQ ID} & \textbf{Primary block(s)} & \textbf{Architecture note} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 MIS-001 & SYS + SIM & envelope drives mass / performance budgets \\
 ENG-002 & PROP & thrust / burn architecture \\
 ENG-004 & FEED + GSE & feed supports CF / fueling interfaces \\
@@ -18,5 +28,4 @@ REC-001 & REC & descent architecture \\
 GSE-00x & GSE & remote safing path \\
 SAF-00x & SYS & cross-cutting inhibits \\
 \todo{\ldots} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}

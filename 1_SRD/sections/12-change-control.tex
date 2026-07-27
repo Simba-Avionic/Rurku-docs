@@ -34,10 +34,19 @@ specific stage (example: ``MIS-004 waived for this static fire; cold-flow
 runs next week''). If there are no waivers, write ``None'' in the first row
 and leave the rest empty.
 
-\noindent\begin{tabularx}{\linewidth}{@{}l l X l@{}}
+\begin{xltabular}{\linewidth}{@{}l l X l@{}}
 \toprule
 \textbf{Waiver ID} & \textbf{REQ ID} & \textbf{Reason / residual risk} & \textbf{Approver} \\
 \midrule
-\todo{None / W-001} & \todo{e.g.\ MIS-004} & \todo{why + what risk remains} & \todo{lead / RSO} \\
+\endfirsthead
+\toprule
+\textbf{Waiver ID} & \textbf{REQ ID} & \textbf{Reason / residual risk} & \textbf{Approver} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
 \bottomrule
-\end{tabularx}
+\endlastfoot
+\todo{None / W-001} & \todo{e.g.\ MIS-004} & \todo{why + what risk remains} & \todo{lead / RSO} \\
+\end{xltabular}

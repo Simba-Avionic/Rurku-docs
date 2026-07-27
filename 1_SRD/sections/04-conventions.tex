@@ -5,10 +5,20 @@ Avoid ``should be robust'' without a number or pass/fail test.}
 
 \subsection{ID scheme (by department)}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Prefix} & \textbf{Department / scope} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Prefix} & \textbf{Department / scope} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 \texttt{MIS-} & Mission / campaign success \\
 \texttt{VEH-} & Vehicle system-level (cross-department) \\
 \texttt{ENG-} & Engine \\
@@ -18,8 +28,7 @@ Avoid ``should be robust'' without a number or pass/fail test.}
 \texttt{AV-} & Avionics \\
 \texttt{SIM-} & Simulations \\
 \texttt{SAF-} & Safety (cross-cutting) \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \subsection{Priority}
 

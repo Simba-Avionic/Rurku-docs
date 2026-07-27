@@ -5,10 +5,20 @@ silently invent a new name.}
 
 \subsection{Block ID scheme}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Prefix} & \textbf{Meaning} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Prefix} & \textbf{Meaning} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 \texttt{SYS-} & System-level / vehicle context \\
 \texttt{PROP-} & Propulsion (chamber, injector, ignition) \\
 \texttt{FEED-} & Tanks, feed lines, onboard valves \\
@@ -17,8 +27,7 @@ silently invent a new name.}
 \texttt{AV-} & Avionics / onboard electronics \\
 \texttt{GSE-} & Ground support equipment \\
 \texttt{IF-} & Named interface (summary; detail $\rightarrow$ ICD) \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \subsection{Figures}
 
