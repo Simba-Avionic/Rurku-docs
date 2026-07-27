@@ -1,27 +1,29 @@
-\section{IF-008 --- GSE to PROP/FEED --- valve / igniter drive}
+\section{IF-008 --- Safety pins}
 
 \begin{tabular}{@{}ll@{}}
 \textbf{ID:} & IF-008 \\
-\textbf{Title:} & GSE to PROP/FEED --- valve / igniter drive \\
-\textbf{Type:} & Electrical \\
+\textbf{Title:} & Safety pins \\
+\textbf{Type:} & Mechanical / Electrical \\
 \textbf{Status:} & Draft \\
-\textbf{Revision:} & 0.1 \\
-\textbf{From (block):} & GSE \\
-\textbf{To (block):} & PROP/FEED \\
-\textbf{Owner A:} & \todo{name / dept} \\
-\textbf{Owner B:} & \todo{name / dept} \\
+\textbf{Revision:} & 0.2 \\
+\textbf{From (block):} & AVIONICS \\
+\textbf{To (block):} & STRUCTURE \\
+\textbf{Owner A:} & \todo{Avionics} \\
+\textbf{Owner B:} & \todo{Aerostructure} \\
 \end{tabular}
 
 \subsection*{Definition}
 
 \paragraph{Purpose}
-Remote actuation of valves and igniters from GSE during ground ops.
+Safety-pin / inhibit interfaces between structure and avionics (removal /
+presence sensing and mechanical inhibit) supporting arming and
+safe-to-approach states (AV-003, AV-031).
 
 \paragraph{Physical / connector / fitting}
 \begin{itemize}
-  \item Connector / fitting standard: \todo{}
+  \item Connector / fitting standard: \todo{pin geometry / lanyard}
   \item Gender / keying / mating face: \todo{}
-  \item Mounting / torque / seal: \todo{}
+  \item Mounting / torque / seal: \todo{structure receptacle}
 \end{itemize}
 
 \paragraph{Signals / media / messages}
@@ -39,43 +41,35 @@ Remote actuation of valves and igniters from GSE during ground ops.
 \endfoot
 \bottomrule
 \endlastfoot
-\todo{} & A$\rightarrow$B / B$\rightarrow$A / bi & \todo{} & \todo{} \\
+\todo{PIN sense} & B$\rightarrow$A & Pin present / removed & Part of two-action arming (AV-003) \\
+\todo{PIN mech} & --- & Mechanical inhibit path & \todo{} \\
 \end{xltabular}
 
 \paragraph{Data / protocol (if applicable)}
-\begin{itemize}
-  \item Protocol / bus: \todo{}
-  \item Rate / period: \todo{}
-  \item Encoding / endianness / units: \todo{}
-  \item Message / field list: \todo{or link}
-\end{itemize}
+Not applicable (discrete sense).
 
 \paragraph{Electrical (if applicable)}
 \begin{itemize}
-  \item Voltage / current: \todo{}
+  \item Voltage / current: \todo{sense loop}
   \item Pinout table: \todo{}
   \item Grounding / isolation: \todo{}
 \end{itemize}
 
 \paragraph{Fluid (if applicable)}
-\begin{itemize}
-  \item Media: \todo{}
-  \item MEOP / proof: \todo{}
-  \item Flow direction / check valves: \todo{}
-\end{itemize}
+Not applicable.
 
 \paragraph{Diagrams}
 \todo{Path under figures/ or includegraphics.}
 
 \paragraph{Responsibilities}
 \begin{itemize}
-  \item Side A may change: \todo{}
-  \item Side B may change: \todo{}
-  \item Shared / needs both: \todo{}
+  \item Side A (AVIONICS) may change: sense logic / inhibit wiring
+  \item Side B (STRUCTURE) may change: receptacle location / marking
+  \item Shared / needs both: pin count, remove-before-flight marking, logic
 \end{itemize}
 
 \paragraph{Related SRD / TPTR}
-\todo{REQ IDs; TP-IDs that exercise this interface.}
+AV-003, AV-031; SAF-001; \todo{TP-DR-*}
 
 \paragraph{IF change history}
 \begin{xltabular}{\linewidth}{@{}l l X@{}}
@@ -92,5 +86,5 @@ Remote actuation of valves and igniters from GSE during ground ops.
 \endfoot
 \bottomrule
 \endlastfoot
-0.1 & 16.07.2026 & Initial shell from SAD register \\
-\end{xltabular} 
+0.2 & \today & Retargeted to AVIONICS$\leftrightarrow$STRUCTURE safety pins \\
+\end{xltabular}

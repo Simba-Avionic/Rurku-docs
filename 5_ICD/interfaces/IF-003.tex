@@ -1,25 +1,26 @@
-\section{IF-003 --- PROP to STR --- engine mounts}
+\section{IF-003 --- Servo motor control}
 
 \begin{tabular}{@{}ll@{}}
 \textbf{ID:} & IF-003 \\
-\textbf{Title:} & PROP to STR --- engine mounts \\
-\textbf{Type:} & Mechanical \\
+\textbf{Title:} & Servo motor control \\
+\textbf{Type:} & Electrical \\
 \textbf{Status:} & Draft \\
-\textbf{Revision:} & 0.1 \\
-\textbf{From (block):} & PROP \\
-\textbf{To (block):} & STR \\
-\textbf{Owner A:} & \todo{name / dept} \\
-\textbf{Owner B:} & \todo{name / dept} \\
+\textbf{Revision:} & 0.2 \\
+\textbf{From (block):} & AVIONICS \\
+\textbf{To (block):} & PROP \\
+\textbf{Owner A:} & \todo{Avionics} \\
+\textbf{Owner B:} & \todo{Engine / Propulsion} \\
 \end{tabular}
 
 \subsection*{Definition}
 
 \paragraph{Purpose}
-Structural load path from engine into airframe mounts.
+Command and power interface from avionics to propulsion valve / actuator
+servos (see SRD AV-019, AV-020, AV-028).
 
 \paragraph{Physical / connector / fitting}
 \begin{itemize}
-  \item Connector / fitting standard: \todo{}
+  \item Connector / fitting standard: \todo{factory servo connectors (AV-024)}
   \item Gender / keying / mating face: \todo{}
   \item Mounting / torque / seal: \todo{}
 \end{itemize}
@@ -39,12 +40,14 @@ Structural load path from engine into airframe mounts.
 \endfoot
 \bottomrule
 \endlastfoot
-\todo{} & A$\rightarrow$B / B$\rightarrow$A / bi & \todo{} & \todo{} \\
+\todo{Servo CMD} & A$\rightarrow$B & Position / PWM command & $\geq$\,8 channels (AV-019) \\
+\todo{Servo PWR} & A$\rightarrow$B & Motor power rail & Inhibit other than ARM (AV-020) \\
+\todo{Servo FB} & B$\rightarrow$A & \todo{position / current feedback if any} & \todo{} \\
 \end{xltabular}
 
 \paragraph{Data / protocol (if applicable)}
 \begin{itemize}
-  \item Protocol / bus: \todo{}
+  \item Protocol / bus: \todo{PWM / UART / CAN / \ldots}
   \item Rate / period: \todo{}
   \item Encoding / endianness / units: \todo{}
   \item Message / field list: \todo{or link}
@@ -58,24 +61,20 @@ Structural load path from engine into airframe mounts.
 \end{itemize}
 
 \paragraph{Fluid (if applicable)}
-\begin{itemize}
-  \item Media: \todo{}
-  \item MEOP / proof: \todo{}
-  \item Flow direction / check valves: \todo{}
-\end{itemize}
+Not applicable (actuators sit on PROP fluid path; this IF is electrical only).
 
 \paragraph{Diagrams}
 \todo{Path under figures/ or includegraphics.}
 
 \paragraph{Responsibilities}
 \begin{itemize}
-  \item Side A may change: \todo{}
-  \item Side B may change: \todo{}
-  \item Shared / needs both: \todo{}
+  \item Side A (AVIONICS) may change: drive electronics, ARM / inhibit
+  \item Side B (PROP) may change: servo / valve selection within agreed connector
+  \item Shared / needs both: channel map, travel limits, fail-safe position
 \end{itemize}
 
 \paragraph{Related SRD / TPTR}
-\todo{REQ IDs; TP-IDs that exercise this interface.}
+AV-003, AV-019, AV-020, AV-024, AV-028; \todo{TP-IDs}
 
 \paragraph{IF change history}
 \begin{xltabular}{\linewidth}{@{}l l X@{}}
@@ -92,5 +91,5 @@ Structural load path from engine into airframe mounts.
 \endfoot
 \bottomrule
 \endlastfoot
-0.1 & 16.07.2026 & Initial shell from SAD register \\
+0.2 & \today & Retargeted to AVIONICS$\rightarrow$PROP servo motor control \\
 \end{xltabular}

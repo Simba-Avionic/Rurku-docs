@@ -43,16 +43,17 @@ subsystem map (SAD) and not pad procedures (CONOPS).
 
 ## Starter records
 
-| ID | Intent (from SAD) |
+| ID | Intent |
 | --- | --- |
-| `IF-001` | FEED ↔ PROP fluid |
-| `IF-002` | FEED ↔ GSE fluid ports |
-| `IF-003` | PROP ↔ STR mechanical |
-| `IF-004` | FEED ↔ STR mechanical |
-| `IF-005` | AV ↔ REC deploy / inhibit |
-| `IF-006` | AV ↔ GSE umbilical |
-| `IF-007` | AV ↔ Ground RF TM |
-| `IF-008` | GSE ↔ PROP/FEED valve / igniter drive |
+| `IF-001` | AVIONICS ↔ GSE high-speed link |
+| `IF-002` | AVIONICS ↔ GSE low-speed link |
+| `IF-003` | AVIONICS → PROP servo motor control |
+| `IF-004` | AVIONICS ↔ PROP pressure sensor |
+| `IF-005` | AVIONICS ↔ PROP temperature sensor |
+| `IF-006` | AVIONICS → PROP igniter channel |
+| `IF-007` | AVIONICS ↔ STRUCTURE engine connectors |
+| `IF-008` | AVIONICS ↔ STRUCTURE safety pins |
+| `IF-009` | GSE → AVIONICS charging control |
 | `IF-XXX-000` | Blank template |
 
 Related: SAD (register / architecture), SRD (requirements), TPTR (integration tests).

@@ -1,21 +1,22 @@
-\section{IF-002 --- FEED to GSE --- fill / vent / dump ports}
+\section{IF-002 --- Low-speed link}
 
 \begin{tabular}{@{}ll@{}}
 \textbf{ID:} & IF-002 \\
-\textbf{Title:} & FEED to GSE --- fill / vent / dump ports \\
-\textbf{Type:} & Fluid \\
+\textbf{Title:} & Low-speed link \\
+\textbf{Type:} & communication \\
 \textbf{Status:} & Draft \\
-\textbf{Revision:} & 0.1 \\
-\textbf{From (block):} & FEED \\
+\textbf{Revision:} & 0.2 \\
+\textbf{From (block):} & AVIONICS \\
 \textbf{To (block):} & GSE \\
-\textbf{Owner A:} & \todo{name / dept} \\
-\textbf{Owner B:} & \todo{name / dept} \\
+\textbf{Owner A:} & \todo{Avionics} \\
+\textbf{Owner B:} & \todo{GSE} \\
 \end{tabular}
 
 \subsection*{Definition}
 
 \paragraph{Purpose}
-Ground fill, vent, and dump connections to vehicle tanks / plumbing.
+Long-range communication between rocket avionics and GSE;
+downlink-only allowed (see SRD AV-012).
 
 \paragraph{Physical / connector / fitting}
 \begin{itemize}
@@ -39,7 +40,7 @@ Ground fill, vent, and dump connections to vehicle tanks / plumbing.
 \endfoot
 \bottomrule
 \endlastfoot
-\todo{} & A$\rightarrow$B / B$\rightarrow$A / bi & \todo{} & \todo{} \\
+\todo{LS TM} & A$\rightarrow$B & Long-range telemetry downlink & $\geq\,2\times$ target altitude (AV-012) \\
 \end{xltabular}
 
 \paragraph{Data / protocol (if applicable)}
@@ -58,24 +59,20 @@ Ground fill, vent, and dump connections to vehicle tanks / plumbing.
 \end{itemize}
 
 \paragraph{Fluid (if applicable)}
-\begin{itemize}
-  \item Media: \todo{}
-  \item MEOP / proof: \todo{}
-  \item Flow direction / check valves: \todo{}
-\end{itemize}
+Not applicable.
 
 \paragraph{Diagrams}
 \todo{Path under figures/ or includegraphics.}
 
 \paragraph{Responsibilities}
 \begin{itemize}
-  \item Side A may change: \todo{}
-  \item Side B may change: \todo{}
-  \item Shared / needs both: \todo{}
+  \item Side A (AVIONICS) may change: \todo{flight radio}
+  \item Side B (GSE) may change: \todo{ground receiver}
+  \item Shared / needs both: frequency plan, duty cycle (AV-016, AV-017)
 \end{itemize}
 
 \paragraph{Related SRD / TPTR}
-\todo{REQ IDs; TP-IDs that exercise this interface.}
+AV-012, AV-016, AV-017, AV-021; \todo{TP-IDs}
 
 \paragraph{IF change history}
 \begin{xltabular}{\linewidth}{@{}l l X@{}}
@@ -92,5 +89,5 @@ Ground fill, vent, and dump connections to vehicle tanks / plumbing.
 \endfoot
 \bottomrule
 \endlastfoot
-0.1 & 16.07.2026 & Initial shell from SAD register \\
+0.2 & \today & Retargeted to AVIONICS$\rightarrow$GSE low-speed / long-range link \\
 \end{xltabular}

@@ -1,28 +1,29 @@
-\section{IF-004 --- Pressure sensor}
+\section{IF-009 --- Charging control}
 
 \begin{tabular}{@{}ll@{}}
-\textbf{ID:} & IF-004 \\
-\textbf{Title:} & Pressure sensor \\
-\textbf{Type:} & Electrical / Data \\
+\textbf{ID:} & IF-009 \\
+\textbf{Title:} & Charging control \\
+\textbf{Type:} & Electrical \\
 \textbf{Status:} & Draft \\
-\textbf{Revision:} & 0.2 \\
-\textbf{From (block):} & AVIONICS \\
-\textbf{To (block):} & PROP \\
-\textbf{Owner A:} & \todo{Avionics} \\
-\textbf{Owner B:} & \todo{Engine / Propulsion} \\
+\textbf{Revision:} & 0.1 \\
+\textbf{From (block):} & GSE \\
+\textbf{To (block):} & AVIONICS \\
+\textbf{Owner A:} & \todo{GSE} \\
+\textbf{Owner B:} & \todo{Avionics} \\
 \end{tabular}
 
 \subsection*{Definition}
 
 \paragraph{Purpose}
-Acquisition of tank and chamber pressure channels by avionics from PROP
-sensing points (see SRD AV-015).
+Ground charging power and control from GSE into vehicle avionics so the
+rocket can remain on the pad without depleting flight batteries
+(see SRD AV-011, AV-025).
 
 \paragraph{Physical / connector / fitting}
 \begin{itemize}
-  \item Connector / fitting standard: \todo{}
+  \item Connector / fitting standard: \todo{umbilical / charge port}
   \item Gender / keying / mating face: \todo{}
-  \item Mounting / torque / seal: \todo{sensor ports on PROP hardware}
+  \item Mounting / torque / seal: \todo{}
 \end{itemize}
 
 \paragraph{Signals / media / messages}
@@ -40,16 +41,17 @@ sensing points (see SRD AV-015).
 \endfoot
 \bottomrule
 \endlastfoot
-\todo{P channels} & B$\rightarrow$A & Tank / chamber pressure & 6 channels, $\geq$\,15\,Hz (AV-015) \\
-\todo{P excite} & A$\rightarrow$B & Sensor excitation if required & \todo{} \\
+\todo{CHG PWR} & A$\rightarrow$B & Charge power rail & \todo{V / A limits} \\
+\todo{CHG CTRL} & A$\rightarrow$B & Enable / interlock & \todo{} \\
+\todo{CHG STAT} & B$\rightarrow$A & Battery / charge status & Ties to AV-025 alarms \\
 \end{xltabular}
 
 \paragraph{Data / protocol (if applicable)}
 \begin{itemize}
-  \item Protocol / bus: \todo{analog / SPI / I2C / \ldots}
-  \item Rate / period: $\geq$\,15\,Hz per channel
-  \item Encoding / endianness / units: \todo{bar / Pa; scale}
-  \item Message / field list: \todo{channel map}
+  \item Protocol / bus: \todo{discrete / CAN / \ldots}
+  \item Rate / period: \todo{}
+  \item Encoding / endianness / units: \todo{}
+  \item Message / field list: \todo{or link}
 \end{itemize}
 
 \paragraph{Electrical (if applicable)}
@@ -60,24 +62,20 @@ sensing points (see SRD AV-015).
 \end{itemize}
 
 \paragraph{Fluid (if applicable)}
-\begin{itemize}
-  \item Media: propellant / pressurant / chamber gas at sensor port
-  \item MEOP / proof: \todo{per PROP}
-  \item Flow direction / check valves: N/A (sense port)
-\end{itemize}
+Not applicable.
 
 \paragraph{Diagrams}
 \todo{Path under figures/ or includegraphics.}
 
 \paragraph{Responsibilities}
 \begin{itemize}
-  \item Side A (AVIONICS) may change: DAQ, filtering, logging
-  \item Side B (PROP) may change: sensor model / port location within agreed range
-  \item Shared / needs both: channel IDs, calibration, pressure range
+  \item Side A (GSE) may change: supply / CP charge UI
+  \item Side B (AVIONICS) may change: BMS / charge accept logic
+  \item Shared / needs both: connector, voltage limits, disconnect-before-flight
 \end{itemize}
 
 \paragraph{Related SRD / TPTR}
-AV-015, AV-004; \todo{TP-IDs (CF / SF)}
+AV-011, AV-025, AV-014; \todo{TP-IDs}
 
 \paragraph{IF change history}
 \begin{xltabular}{\linewidth}{@{}l l X@{}}
@@ -94,5 +92,5 @@ AV-015, AV-004; \todo{TP-IDs (CF / SF)}
 \endfoot
 \bottomrule
 \endlastfoot
-0.2 & \today & Retargeted to AVIONICS$\leftrightarrow$PROP pressure sensing \\
+0.1 & \today & Initial shell from ICD register \\
 \end{xltabular}
