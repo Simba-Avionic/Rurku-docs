@@ -10,10 +10,7 @@ Test Plan.}
 ignition, and typically onboard tanks / feed hardware that delivers
 propellant to the engine. Coordinate remotely actuated valves with GSE.}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
-\toprule
-\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
-\midrule
+\begin{reqtabular}
 ENG-001 & Propellant combination shall be \todo{fuel / oxidizer}
   (change requires SRD approval). & Must & I & \todo{} \\
 ENG-002 & Engine shall deliver thrust / burn time of
@@ -27,15 +24,11 @@ ENG-005 & MEOP / proof / burst factors for engine-side pressure hardware
 ENG-006 & Engine-side valves required for hot/fueled ops shall be remotely
   operable via GSE. & Must & D/T & \todo{} \\
 ENG-007 & \todo{Cutoff / abort / residual dump capability if any.} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{reqtabular}
 
 \subsection{Aerostructure}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
-\toprule
-\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
-\midrule
+\begin{reqtabular}
 AERO-001 & Airframe shall survive nominal flight loads with factor of safety
   \todo{FoS}. & Must & A/T & \todo{} \\
 AERO-002 & Engine / tank mounts shall carry static-fire and flight loads. & Must & A/T & \todo{} \\
@@ -44,33 +37,70 @@ AERO-003 & Rail buttons / guides shall be compatible with
 AERO-004 & Outer mold line / fin set shall provide static margin
   $\geq$\,\todo{Z}\,cal (with Simulations). & Must & A & \todo{} \\
 AERO-005 & \todo{Additional aerostructure req.\ (mass budget share, integration).} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{reqtabular}
 
 \subsection{Avionics}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
-\toprule
-\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
-\midrule
-AV-001 & Flight computer shall detect apogee / deploy events per recovery
-  requirements. & Must & T & \todo{} \\
-AV-002 & Telemetry shall be live to the ground station from T$-$\,\todo{} through
-  \todo{landing / loss of signal criteria}. & Must & T & \todo{} \\
-AV-003 & Arming shall require an explicit, reversible action distinct from
-  power-up (CONOPS armed mode). & Must & D & \todo{} \\
-AV-004 & Onboard power shall last $\geq$\,\todo{t}\,min in the worst-case
-  timeline (pad hold + flight + recovery search). & Must & T/A & \todo{} \\
-AV-005 & \todo{Recording / backup data / sensor suite requirements.} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\begin{reqtabular}
+AV-001 & All onboard computers shall have synchronized time. & Must & T/D & \todo{} \\
+AV-002 & The rocket shall synchronize time with GSE. & Should & T/D & \todo{} \\
+AV-003 & All actuators shall be secured and shall require at least two
+  actions to activate. & Must & I/D & \todo{} \\
+AV-004 & All sensor data shall be saved on every computer. & Must & T & \todo{} \\
+AV-005 & The rocket shall know its position. & Must & T & \todo{} \\
+AV-006 & The rocket shall detect liftoff and allow abort after a failed
+  liftoff. & Must & T/D & \todo{} \\
+AV-007 & The rocket shall be able to auto-tank its tanks. & Could & T & \todo{} \\
+AV-008 & The rocket shall be able to reduce tank pressure when required. & Must & T/D & \todo{} \\
+AV-009 & GSE shall be able to disable AV-008 when personnel need to
+  approach the rocket. & Must & D/T & \todo{} \\
+AV-010 & All manual actions from GSE (e.g.\ venting) shall take effect
+  immediately on the rocket and shall immediately report the change as an
+  event. & Must & T/D & \todo{} \\
+AV-011 & The rocket shall remain on the launch pad for at least 6\,h
+  without charging. & Must & T & \todo{} \\
+AV-012 & The rocket shall have long-range communication with GSE
+  (downlink-only allowed) that works to at least $2\times$ target
+  altitude. & Must & T/A & \todo{} \\
+AV-013 & The rocket shall have a fast bidirectional communication link with
+  GSE (separate from AV-012) that works to at least 100\,m. & Should & T & \todo{} \\
+AV-014 & All electronic modules on the rocket shall be depowerable without
+  opening the rocket. & Must & D & \todo{} \\
+AV-015 & The rocket shall measure tank and chamber pressure (6 channels) at
+  $\geq$\,15\,Hz per channel. & Must & T & \todo{} \\
+AV-016 & Communication with GSE shall carry all required data using no more
+  than 50\% of the allowed duty cycle. & Must & A/T & \todo{} \\
+AV-017 & All radio communication shall support EU and USA settings, with an
+  easy mode switch. & Must & I/D & \todo{} \\
+AV-018 & All avionics components shall be modular and easy to replace under
+  all operating conditions. & Must & I/D & \todo{} \\
+AV-019 & Avionics shall be able to drive at least 8 servo motors. & Must & T/D & \todo{} \\
+AV-020 & Each servo-motor channel shall provide a way to disable motor power
+  other than ARM. & Must & D/T & \todo{} \\
+AV-021 & All external communication shall include a method of user
+  authentication (cryptography). & Should & I/D & \todo{} \\
+AV-022 & All boards shall measure internal board temperature and air
+  temperature inside the rocket at $\geq$\,1\,Hz. & Must & T & \todo{} \\
+AV-023 & The rocket shall measure acceleration, speed, air pressure, etc.\ at
+  $\geq$\,15\,Hz. & Should & T & \todo{} \\
+AV-024 & All components with factory cables shall use those cables; changing
+  plugs on motors etc.\ is not allowed. & Must & I & \todo{} \\
+AV-025 & All boards shall measure battery level and raise an alarm on
+  anomalies. & Must & T/D & \todo{} \\
+AV-026 & Igniter ports shall be immune to short circuit (one short-circuited
+  primer shall not cause launch failure). & Must & T & \todo{} \\
+AV-027 & Igniter ports shall detect short circuit and open circuit. & Should & T & \todo{} \\
+AV-028 & All motors shall be commandable to the closed position from GSE. & Must & D/T & \todo{} \\
+AV-029 & Only necessary actions shall be available from the GSE control
+  panel (CP). & Must & I/D & \todo{} \\
+AV-030 & All rocket components shall be remotely restartable from GSE. & Must & D/T & \todo{} \\
+AV-031 & It shall be possible to achieve a rocket state safe to approach
+  under all conditions. & Must & D & \todo{} \\
+\end{reqtabular}
 
 \subsection{Recovery}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
-\toprule
-\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
-\midrule
+\begin{reqtabular}
 REC-001 & Recovery system shall limit descent rate to $\leq$\,\todo{v}\,m/s
   at landing. & Must & A/T & \todo{} \\
 REC-002 & Deployment shall occur at / after apogee within
@@ -78,18 +108,14 @@ REC-002 & Deployment shall occur at / after apogee within
 REC-003 & Vehicle shall be trackable to the expected landing area
   (\todo{radio / GPS / visual}). & Must & T/D & \todo{} \\
 REC-004 & \todo{Dual-deploy / redundancy if required.} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{reqtabular}
 
 \subsection{Simulations}
 
 \guidance{Simulations does not fly hardware, but owns analyses that
 \emph{close} mission and vehicle requirements before flight / SF.}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X c c l@{}}
-\toprule
-\textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
-\midrule
+\begin{reqtabular}
 SIM-001 & A trajectory / performance model shall predict apogee for the
   baseline vehicle within \todo{tolerance} of MIS-001 before flight. & Must & A & \todo{} \\
 SIM-002 & Stability / aero analysis shall confirm AERO-004 (static margin)
@@ -99,5 +125,4 @@ SIM-003 & Structural / loads analysis shall support AERO-001 / AERO-002
 SIM-004 & Simulations shall deliver pre-flight / pre-SF prediction packages
   used in go/no-go (CONOPS). & Should & I & \todo{} \\
 SIM-005 & \todo{CFD / thermal / other analysis requirements if needed.} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{reqtabular}

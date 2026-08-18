@@ -4,10 +4,20 @@
 \guidance{Living index of all tests. Add a row when you create a record.
 Update Status after the Report is filled.}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l l X l l@{}}
+\begin{xltabular}{\linewidth}{@{}l l X l l@{}}
 \toprule
 \textbf{ID} & \textbf{Date} & \textbf{Title} & \textbf{Lead} & \textbf{Status} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Date} & \textbf{Title} & \textbf{Lead} & \textbf{Status} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 TP-CP-001 & 26.06.2026 & Chamber Pressure & Jan Sacharuk & Pass \\
 TP-CF-001 & 4.07.2026 & Cold-flow \#1 & Jan Sacharuk & Fail \\
 TP-CF-002 & 14.07.2026 & Cold-flow \#2 & Jan Sacharuk & Pass \\
@@ -18,5 +28,4 @@ TP-DR-001 & \todo{} & On-site countdown dry run & \todo{} & Planned \\
 TP-FL-001 & \todo{} & Competition / campaign flight & \todo{} & Planned \\
 TP-XX-000 & --- & Blank template (do not run) & --- & Template \\
 \todo{TP-\ldots} & \todo{} & \todo{} & \todo{} & \todo{} \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}

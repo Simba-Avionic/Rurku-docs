@@ -1,0 +1,27 @@
+% Page-breaking full-width tables (xltabular).
+% Require: \usepackage{xltabular} \usepackage{booktabs} in the document preamble.
+%
+% \VVHeader is optional (SRD defines a hyperlink); fallback is plain text.
+\providecommand{\VVHeader}{\textbf{V\&V}}
+
+% Standard 5-column requirement table: ID | Requirement | Pri. | V&V | Owner
+% Uses +b body collector --- required because xltabular cannot sit in a
+% classical \newenvironment wrapper.
+\NewDocumentEnvironment{reqtabular}{+b}{%
+  \begin{xltabular}{\linewidth}{@{}l X c c l@{}}%
+  \toprule
+  \textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{ID} & \textbf{Requirement} & \textbf{Pri.} & \VVHeader & \textbf{Owner} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{5}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  #1%
+  \end{xltabular}%
+}{}

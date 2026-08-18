@@ -13,17 +13,26 @@
 
 \subsection{Out of scope (do not duplicate)}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Content} & \textbf{Document} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Content} & \textbf{Document} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Subsystem breakdown, budgets, context diagrams & SAD \\
 Measurable Must / Should requirements & SRD \\
 Campaign timelines, pad roles, contingencies & CONOPS \\
 Test procedures, plots, pass/fail evidence & TPTR \\
 Full CAD / manufacturing drawings & CAD vault (link from IF sheet) \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \subsection{Assumptions}
 

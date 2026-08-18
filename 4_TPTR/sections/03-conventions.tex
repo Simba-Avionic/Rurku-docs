@@ -2,10 +2,20 @@
 
 \subsection{Test ID scheme}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Prefix} & \textbf{Meaning} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Prefix} & \textbf{Meaning} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 \texttt{TP-CP-xxx} & Chamber pressure (bench / feed / sensor checkout) \\
 \texttt{TP-CF-xxx} & Cold-flow \\
 \texttt{TP-SF-xxx} & Static fire \\
@@ -15,8 +25,7 @@
 \texttt{TP-REC-xxx} & Recovery (e.g.\ drop / charge test) \\
 \texttt{TP-GSE-xxx} & GSE-only checkout \\
 \texttt{TP-XX-xxx} & Other / template \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \subsection{Status values}
 

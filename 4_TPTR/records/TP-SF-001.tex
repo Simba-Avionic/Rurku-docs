@@ -52,10 +52,20 @@ are listed in checklist~C.}
 \noindent\textbf{A --- Pre-fill checklist}
 
 \medskip
-\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
 \toprule
 \textbf{Operation} & \textbf{Expected result} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Operation} & \textbf{Expected result} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Engine assembled and mounted & --- \\
 Ethanol tank filled manually & --- \\
 Mother bottles connected & --- \\
@@ -66,17 +76,26 @@ Electronics powered on & --- \\
 Confirm sensor readings (load cell, pressures, temperatures) & Within expected range \\
 E-matches connected & SRP app reports primers as CONNECTED \\
 \multicolumn{2}{@{}l@{}}{\textit{Proceed to checklist B}} \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \medskip
 \noindent\textbf{B --- Fill procedures}
 
 \medskip
-\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
 \toprule
 \textbf{Operation} & \textbf{Expected result} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Operation} & \textbf{Expected result} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Open manual valves on mother bottles & GSE partially pressurised \\
 Check GSE pressure readings & Within expected range \\
 \addlinespace
@@ -94,17 +113,26 @@ Control tank temperature & Heat if below target pressure; vent excess mass or co
 Slowly vent remaining excess mass (1--2\,s pulses, wait for pressure recovery) & N\textsubscript{2}O temperature and vapour pressure drop during venting \\
 Fill complete; disconnect N\textsubscript{2} and N\textsubscript{2}O decouplers & --- \\
 \multicolumn{2}{@{}l@{}}{\textit{Proceed to checklist C}} \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \medskip
 \noindent\textbf{C --- Firing (pressurisation, ignition, shutdown, depressurisation)}
 
 \medskip
-\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
 \toprule
 \textbf{Operation} & \textbf{Expected result} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Operation} & \textbf{Expected result} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Open Main Pressurant Valve & Ethanol tank 1$\rightarrow$40\,bar; N\textsubscript{2}O tank 50.5$\rightarrow$55\,bar \\
 {[}T $-$ 1150\,ms{]} Initiate e-matches & Flares ignite \\
 {[}T $-$ 450\,ms{]} Open Main Fuel Valve (fully) & Fuel flow enabled \\
@@ -114,39 +142,56 @@ Open Main Pressurant Valve & Ethanol tank 1$\rightarrow$40\,bar; N\textsubscript
 {[}T $+$ 7400\,ms{]} Close Main Fuel Valve (fully) & Fuel flow stops \\
 {[}T $+$ 12400\,ms{]} Open Oxidizer Venting Valve & Oxidizer tank starts emptying \\
 {[}T $+$ 12600\,ms{]} Open Fuel Venting Valve & Ethanol tank starts emptying \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \medskip
 \noindent\textbf{D-1 --- Pressurant dump}
 
 \medskip
-\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
 \toprule
 \textbf{Operation} & \textbf{Expected result} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Operation} & \textbf{Expected result} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 If GSE connected, close Pressurant Filling Valve (GSE) & --- \\
 Close Main Pressurant Valve & --- \\
 Open Pressurant Venting Valve & Pressurant tank empties; internal pressure decreases \\
 Wait for pressure $\approx$1\,bar & Safe to proceed \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \medskip
 \noindent\textbf{D-2 --- Oxidizer dump}
 
 \medskip
-\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
 \toprule
 \textbf{Operation} & \textbf{Expected result} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Operation} & \textbf{Expected result} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 \multicolumn{2}{@{}l@{}}{\textit{Pressurant must be dumped first --- execute D-1 if applicable}} \\
 If GSE connected, close Oxidizer Filling Valve (GSE) & --- \\
 Close Main Pressurant Valve and Oxidizer Venting Valve & --- \\
 Open Oxidizer Dump Valve & Mass and pressure in tank decrease \\
 Wait for pressure $\approx$1\,bar & Safe to proceed \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \medskip
 \noindent\textbf{D-3 --- Hot abort (during checklist C)}
@@ -154,10 +199,20 @@ Wait for pressure $\approx$1\,bar & Safe to proceed \\
 \guidance{Manual abort anytime between ignition command and engine shutdown.}
 
 \medskip
-\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.38\linewidth} X@{}}
 \toprule
 \textbf{Operation} & \textbf{Expected result} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Operation} & \textbf{Expected result} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Close Main Oxidizer Valve & Computer-executed sequence \\
 Close Main Pressurant Valve & --- \\
 (+200\,ms) Close Main Fuel Valve & --- \\
@@ -165,8 +220,7 @@ Open Pressurant Venting Valve & --- \\
 Open Fuel Venting Valve & --- \\
 Wait for fuel and pressurant tank pressures $\approx$1\,bar & Manual commands \\
 If no flame visible, execute checklist D-2 & --- \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \paragraph{Success criteria}
 \begin{itemize}

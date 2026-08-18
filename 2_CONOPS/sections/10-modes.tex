@@ -3,10 +3,20 @@
 \guidance{Modes apply to cold-flow, static fire, and flight day.
 Add transition rules (who approves).}
 
-\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\begin{xltabular}{\linewidth}{@{}l X@{}}
 \toprule
 \textbf{Mode} & \textbf{When / meaning} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Mode} & \textbf{When / meaning} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
 Cold / safe & no propellant (or system depressurized), disarmed, free access \\
 Hot / fueled & propellant on board or in lines; access restricted \\
 Armed & igniter / recovery / FC armed \\
@@ -17,8 +27,7 @@ Recovery & search and secure \\
 Abort / hold & pause or terminate --- see contingency scenarios \\
 Training / dry run & full procedure without propellant / without ignition \\
 Packing & packing / transport --- no ``hot'' without a separate procedure \\
-\bottomrule
-\end{tabularx}
+\end{xltabular}
 
 \todo{Add: who approves cold $\rightarrow$ hot and armed $\rightarrow$
 countdown at each stage (cold-flow / SF / flight).}
